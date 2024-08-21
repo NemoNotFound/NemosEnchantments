@@ -3,15 +3,15 @@
 	"id": "nemos-enchantments",
 	"version": "${version}",
 	"name": "Nemo's Enchantments",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Add more enchantments to Minecraft!",
 	"authors": [
-		"Me!"
+		"NemoNotFound"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://nemonotfound.com/",
+		"sources": "https://github.com/NemoNotFound/NemosEnchantments"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/nemos-enchantments/icon.png",
 	"environment": "*",
 	"entrypoints": {
