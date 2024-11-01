@@ -15,7 +15,7 @@ public class RegistryProvider extends FabricDynamicRegistryProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup registries, Entries entries) {
-        entries.addAll(registries.getWrapperOrThrow(RegistryKeys.ENCHANTMENT));
+        entries.addAll(registries.getOrThrow(RegistryKeys.ENCHANTMENT));
     }
 
     @Override

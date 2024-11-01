@@ -20,7 +20,7 @@ public class EnchantmentUtils {
 
     private static RegistryEntry<Enchantment> getEnchantmentRegistryEntry(World world, RegistryKey<Enchantment> enchantmentRegistryKey) {
         return world.getRegistryManager()
-                .getWrapperOrThrow(RegistryKeys.ENCHANTMENT)
+                .getOrThrow(RegistryKeys.ENCHANTMENT)
                 .getOrThrow(enchantmentRegistryKey);
     }
 }

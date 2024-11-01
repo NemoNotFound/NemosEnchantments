@@ -19,7 +19,7 @@ public class EnchantmentTagProvider extends FabricTagProvider.EnchantmentTagProv
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
-        RegistryWrapper.Impl<Enchantment> enchantmentRegistryWrapper = wrapperLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
+        RegistryWrapper.Impl<Enchantment> enchantmentRegistryWrapper = wrapperLookup.getOrThrow(RegistryKeys.ENCHANTMENT);
 
         getOrCreateTagBuilder(EnchantmentTags.ON_RANDOM_LOOT)
                 .add(enchantmentRegistryWrapper.getOrThrow(SOUL_BINDING).registryKey());
