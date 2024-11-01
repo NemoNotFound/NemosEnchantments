@@ -6,7 +6,10 @@
     "AnvilScreenMixin",
     "AnvilScreenHandlerMixin",
     "PlayerEntityMixin",
-    "ServerPlayerEntityMixin"
+    "ServerPlayerEntityMixin",
+    "AbstractHorseEntityMixin",
+    "AllayEntityMixin",
+    "MobEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1
