@@ -4,7 +4,12 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "AnvilScreenMixin",
-    "AnvilScreenHandlerMixin"
+    "AnvilScreenHandlerMixin",
+    "PlayerEntityMixin",
+    "ServerPlayerEntityMixin",
+    "AbstractHorseEntityMixin",
+    "AllayEntityMixin",
+    "MobEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

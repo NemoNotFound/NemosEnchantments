@@ -2,7 +2,7 @@
 <br><br>
 
 # Description
-Nemo's Enchantments adds more enchantments to Minecraft and removes the "Too expensive" feature from the anvil!
+Nemo's Enchantments adds more enchantments like "Soul Binding" to Minecraft and removes the "Too expensive" feature from the anvil!
 
 [![Join my Discord](https://github.com/NemoNotFound/NemoNotFound/blob/master/resources/svg/join_discord_button.svg?raw=true)](https://discord.com/invite/yxs9dga)
 <br>

@@ -1,7 +1,8 @@
-# Changelog v1.0
+# Changelog v1.1
 
-## Changes
-- Removed the "Too expensive" feature from the anvil
+## Additions
+- Added "Soul Binding" enchantment
+  - Equipment enchanted with this won't be lost, when dying
 
 ### Downloads
 [CurseForge](https://curseforge.com/minecraft/mc-mods/nemos-enchantments) <br>
