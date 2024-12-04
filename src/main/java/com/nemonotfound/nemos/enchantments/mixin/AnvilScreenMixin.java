@@ -1,4 +1,4 @@
-package com.nemonotfound.nemosenchantments.mixin;
+package com.nemonotfound.nemos.enchantments.mixin;
 
 import com.llamalad7.mixinextras.expression.Expression;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;

@@ -1,10 +1,10 @@
-package com.nemonotfound.nemosenchantments;
+package com.nemonotfound.nemos.enchantments;
 
-import com.nemonotfound.nemosenchantments.datagen.EnchantmentTagProvider;
-import com.nemonotfound.nemosenchantments.datagen.RegistryProvider;
-import com.nemonotfound.nemosenchantments.datagen.langdatagen.EnglishLanguageGenerator;
-import com.nemonotfound.nemosenchantments.datagen.langdatagen.GermanLanguageGenerator;
-import com.nemonotfound.nemosenchantments.enchantment.ModEnchantments;
+import com.nemonotfound.nemos.enchantments.datagen.EnchantmentTagProvider;
+import com.nemonotfound.nemos.enchantments.datagen.RegistryProvider;
+import com.nemonotfound.nemos.enchantments.datagen.langdatagen.EnglishLanguageGenerator;
+import com.nemonotfound.nemos.enchantments.datagen.langdatagen.GermanLanguageGenerator;
+import com.nemonotfound.nemos.enchantments.enchantment.ModEnchantments;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.registry.RegistryBuilder;

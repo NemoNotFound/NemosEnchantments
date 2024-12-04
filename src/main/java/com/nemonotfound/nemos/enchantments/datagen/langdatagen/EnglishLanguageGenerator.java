@@ -1,6 +1,6 @@
-package com.nemonotfound.nemosenchantments.datagen.langdatagen;
+package com.nemonotfound.nemos.enchantments.datagen.langdatagen;
 
-import com.nemonotfound.nemosenchantments.enchantment.ModEnchantments;
+import com.nemonotfound.nemos.enchantments.enchantment.ModEnchantments;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.enchantment.Enchantment;

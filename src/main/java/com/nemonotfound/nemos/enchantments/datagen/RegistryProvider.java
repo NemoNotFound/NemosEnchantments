@@ -1,4 +1,4 @@
-package com.nemonotfound.nemosenchantments.datagen;
+package com.nemonotfound.nemos.enchantments.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;

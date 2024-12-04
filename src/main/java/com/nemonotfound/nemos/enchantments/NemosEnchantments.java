@@ -1,4 +1,4 @@
-package com.nemonotfound.nemosenchantments;
+package com.nemonotfound.nemos.enchantments;
 
 import net.fabricmc.api.ModInitializer;
 

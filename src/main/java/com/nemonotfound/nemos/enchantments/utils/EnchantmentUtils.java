@@ -1,4 +1,4 @@
-package com.nemonotfound.nemosenchantments.utils;
+package com.nemonotfound.nemos.enchantments.utils;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;

@@ -1,22 +1,22 @@
-package com.nemonotfound.nemosenchantments.mixin;
+package com.nemonotfound.nemos.enchantments.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.sugar.Local;
-import com.nemonotfound.nemosenchantments.enchantment.ModEnchantments;
+import com.nemonotfound.nemos.enchantments.enchantment.ModEnchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.passive.AbstractHorseEntity;
+import net.minecraft.entity.passive.AllayEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
-import static com.nemonotfound.nemosenchantments.utils.EnchantmentUtils.hasEnchantment;
+import static com.nemonotfound.nemos.enchantments.utils.EnchantmentUtils.hasEnchantment;
 
-@Mixin(AbstractHorseEntity.class)
-public abstract class AbstractHorseEntityMixin extends Entity {
+@Mixin(AllayEntity.class)
+public abstract class AllayEntityMixin extends Entity {
 
-    public AbstractHorseEntityMixin(EntityType<?> type, World world) {
+    public AllayEntityMixin(EntityType<?> type, World world) {
         super(type, world);
     }
 

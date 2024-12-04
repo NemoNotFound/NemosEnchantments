@@ -1,6 +1,6 @@
-package com.nemonotfound.nemosenchantments.mixin;
+package com.nemonotfound.nemos.enchantments.mixin;
 
-import com.nemonotfound.nemosenchantments.enchantment.ModEnchantments;
+import com.nemonotfound.nemos.enchantments.enchantment.ModEnchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.player.PlayerEntity;
@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.nemonotfound.nemosenchantments.utils.EnchantmentUtils.hasEnchantment;
+import static com.nemonotfound.nemos.enchantments.utils.EnchantmentUtils.hasEnchantment;
 
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin extends Entity {

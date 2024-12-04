@@ -1,4 +1,4 @@
-package com.nemonotfound.nemosenchantments.datagen;
+package com.nemonotfound.nemos.enchantments.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
@@ -9,7 +9,7 @@ import net.minecraft.registry.tag.EnchantmentTags;
 
 import java.util.concurrent.CompletableFuture;
 
-import static com.nemonotfound.nemosenchantments.enchantment.ModEnchantments.SOUL_BINDING;
+import static com.nemonotfound.nemos.enchantments.enchantment.ModEnchantments.SOUL_BINDING;
 
 public class EnchantmentTagProvider extends FabricTagProvider.EnchantmentTagProvider {
 

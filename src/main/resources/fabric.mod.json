@@ -16,20 +16,19 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.nemonotfound.nemosenchantments.NemosEnchantments"
+			"com.nemonotfound.nemos.enchantments.NemosEnchantments"
 		],
 		"fabric-datagen": [
-			"com.nemonotfound.nemosenchantments.NemosEnchantmentsDataGenerator"
+			"com.nemonotfound.nemos.enchantments.NemosEnchantmentsDataGenerator"
 		]
 	},
 	"mixins": [
 		"nemos-enchantments.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.16.7",
+		"fabricloader": ">=0.16.9",
 		"minecraft": [
-			"~1.21.3",
-			"~1.21.2"
+			"~1.21.4"
 		],
 		"java": ">=21",
 		"fabric-api": "*"

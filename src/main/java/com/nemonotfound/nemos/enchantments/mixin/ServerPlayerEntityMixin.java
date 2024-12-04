@@ -1,4 +1,4 @@
-package com.nemonotfound.nemosenchantments.mixin;
+package com.nemonotfound.nemos.enchantments.mixin;
 
 import com.mojang.authlib.GameProfile;
 import net.minecraft.entity.player.PlayerEntity;

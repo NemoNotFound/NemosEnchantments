@@ -1,4 +1,4 @@
-package com.nemonotfound.nemosenchantments.enchantment;
+package com.nemonotfound.nemos.enchantments.enchantment;
 
 import net.minecraft.component.EnchantmentEffectComponentTypes;
 import net.minecraft.component.type.AttributeModifierSlot;
@@ -11,8 +11,8 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.util.Identifier;
 
-import static com.nemonotfound.nemosenchantments.NemosEnchantments.MOD_ID;
-import static com.nemonotfound.nemosenchantments.NemosEnchantments.log;
+import static com.nemonotfound.nemos.enchantments.NemosEnchantments.MOD_ID;
+import static com.nemonotfound.nemos.enchantments.NemosEnchantments.log;
 
 public class ModEnchantments {
 
