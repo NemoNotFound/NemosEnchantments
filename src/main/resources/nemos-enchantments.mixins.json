@@ -3,13 +3,14 @@
   "package": "com.nemonotfound.nemos.enchantments.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "AnvilScreenMixin",
-    "AnvilScreenHandlerMixin",
-    "PlayerEntityMixin",
-    "ServerPlayerEntityMixin",
     "AbstractHorseEntityMixin",
     "AllayEntityMixin",
-    "MobEntityMixin"
+    "AnvilScreenHandlerMixin",
+    "AnvilScreenMixin",
+    "LivingEntityMixin",
+    "MobEntityMixin",
+    "PlayerEntityMixin",
+    "ServerPlayerEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

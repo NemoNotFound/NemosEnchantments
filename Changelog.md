@@ -1,8 +1,9 @@
-# Changelog v1.1
+# Changelog v1.2
 
 ## Additions
-- Added "Soul Binding" enchantment
-  - Equipment enchanted with this won't be lost, when dying
+- Added "Climber" enchantment
+  - Equipped on boots
+  - Makes you climb ladders faster
 
 ### Downloads
 [CurseForge](https://curseforge.com/minecraft/mc-mods/nemos-enchantments) <br>
