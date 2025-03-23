@@ -1,6 +1,6 @@
-# Changelog v1.2
+# Changelog v1.3
 
 ## Additions
-- Added "Climber" enchantment
+- Added "Sprinter" enchantment
   - Equipped on boots
-  - Makes you climb ladders/scaffolding faster
+  - Increases moving speed
