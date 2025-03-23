@@ -1,5 +1,6 @@
 package com.nemonotfound.nemos.enchantments;
 
+import com.nemonotfound.nemos.enchantments.entity.attribute.EntityAttributes;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -12,7 +13,8 @@ public class NemosEnchantments implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-
 		log.info("Thank you for using Nemo's Enchantments!");
+
+		EntityAttributes.init();
 	}
 }

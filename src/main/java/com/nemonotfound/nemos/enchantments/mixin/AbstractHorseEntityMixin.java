@@ -2,7 +2,7 @@ package com.nemonotfound.nemos.enchantments.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.sugar.Local;
-import com.nemonotfound.nemos.enchantments.enchantment.ModEnchantments;
+import com.nemonotfound.nemos.enchantments.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.passive.AbstractHorseEntity;
@@ -22,6 +22,6 @@ public abstract class AbstractHorseEntityMixin extends Entity {
 
     @ModifyExpressionValue(method = "dropInventory", at = @At(value = "INVOKE", target = "Lnet/minecraft/enchantment/EnchantmentHelper;hasAnyEnchantmentsWith(Lnet/minecraft/item/ItemStack;Lnet/minecraft/component/ComponentType;)Z"))
     private boolean shouldNotDrop(boolean original, @Local ItemStack itemStack) {
-        return original && !hasEnchantment(this.getWorld(), ModEnchantments.SOUL_BINDING, itemStack);
+        return original && !hasEnchantment(this.getWorld(), Enchantments.SOUL_BINDING, itemStack);
     }
 }

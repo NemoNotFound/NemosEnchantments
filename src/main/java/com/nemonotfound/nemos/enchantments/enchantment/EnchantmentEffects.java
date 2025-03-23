@@ -1,4 +1,4 @@
 package com.nemonotfound.nemos.enchantments.enchantment;
 
-public class ModEnchantmentEffects {
+public class EnchantmentEffects {
 }

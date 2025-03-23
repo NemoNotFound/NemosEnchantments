@@ -1,6 +1,6 @@
 package com.nemonotfound.nemos.enchantments.datagen.langdatagen;
 
-import com.nemonotfound.nemos.enchantments.enchantment.ModEnchantments;
+import com.nemonotfound.nemos.enchantments.enchantment.Enchantments;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.registry.RegistryWrapper;
@@ -17,6 +17,6 @@ public class GermanLanguageGenerator extends FabricLanguageProvider {
 
     @Override
     public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder translationBuilder) {
-        translationBuilder.add(getEnchantmentTranslationKey(ModEnchantments.SOUL_BINDING), "Seelenbindung");
+        translationBuilder.add(getEnchantmentTranslationKey(Enchantments.SOUL_BINDING), "Seelenbindung");
     }
 }

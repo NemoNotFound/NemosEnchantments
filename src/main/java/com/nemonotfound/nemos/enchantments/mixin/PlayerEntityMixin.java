@@ -1,6 +1,6 @@
 package com.nemonotfound.nemos.enchantments.mixin;
 
-import com.nemonotfound.nemos.enchantments.enchantment.ModEnchantments;
+import com.nemonotfound.nemos.enchantments.enchantment.Enchantments;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.player.PlayerEntity;
@@ -38,7 +38,7 @@ public abstract class PlayerEntityMixin extends Entity {
 
         for (int i = 0; i < this.inventory.size(); i++) {
             ItemStack itemStack = this.inventory.getStack(i);
-            if (!itemStack.isEmpty() && hasEnchantment(this.getWorld(), ModEnchantments.SOUL_BINDING, itemStack)) {
+            if (!itemStack.isEmpty() && hasEnchantment(this.getWorld(), Enchantments.SOUL_BINDING, itemStack)) {
                 itemStackMap.put(i, itemStack);
             }
         }

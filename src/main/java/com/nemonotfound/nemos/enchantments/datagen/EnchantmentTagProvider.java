@@ -9,7 +9,7 @@ import net.minecraft.registry.tag.EnchantmentTags;
 
 import java.util.concurrent.CompletableFuture;
 
-import static com.nemonotfound.nemos.enchantments.enchantment.ModEnchantments.SOUL_BINDING;
+import static com.nemonotfound.nemos.enchantments.enchantment.Enchantments.SOUL_BINDING;
 
 public class EnchantmentTagProvider extends FabricTagProvider.EnchantmentTagProvider {
 

@@ -1,3 +1,5 @@
 {
-  "enchantment.nemos-enchantments.soul_binding": "Soul Binding"
+  "enchantment.nemos-enchantments.soul_binding": "Soul Binding",
+  "enchantment.nemos-enchantments.climber": "Climber",
+  "attribute.name.climbing_efficiency": "Climbing Efficiency"
 }
