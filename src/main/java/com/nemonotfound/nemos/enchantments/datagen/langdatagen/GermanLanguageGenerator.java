@@ -18,5 +18,11 @@ public class GermanLanguageGenerator extends FabricLanguageProvider {
     @Override
     public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder translationBuilder) {
         translationBuilder.add(getEnchantmentTranslationKey(Enchantments.SOUL_BINDING), "Seelenbindung");
+        translationBuilder.add(getEnchantmentTranslationKey(Enchantments.CLIMBER), "Kletterer");
+        translationBuilder.add(getEnchantmentTranslationKey(Enchantments.SPRINTER), "Sprinter");
+        translationBuilder.add(getEnchantmentTranslationKey(Enchantments.REAPER), "Mäher");
+        translationBuilder.add(getEnchantmentTranslationKey(Enchantments.FARMERS_KNOWLEDGE), "Wissen des Bauern");
+        translationBuilder.add(getEnchantmentTranslationKey(Enchantments.REPLANTING), "Wiederbepflanzung");
+        translationBuilder.add("attribute.name.climbing_efficiency", "Klettereffizienz");
     }
 }

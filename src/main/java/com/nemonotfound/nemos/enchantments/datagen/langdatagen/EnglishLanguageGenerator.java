@@ -18,6 +18,12 @@ public class EnglishLanguageGenerator extends FabricLanguageProvider {
     @Override
     public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder translationBuilder) {
         translationBuilder.add(getEnchantmentTranslationKey(Enchantments.SOUL_BINDING), "Soul Binding");
+        translationBuilder.add(getEnchantmentTranslationKey(Enchantments.CLIMBER), "Climber");
+        translationBuilder.add(getEnchantmentTranslationKey(Enchantments.SPRINTER), "Sprinter");
+        translationBuilder.add(getEnchantmentTranslationKey(Enchantments.REAPER), "Reaper");
+        translationBuilder.add(getEnchantmentTranslationKey(Enchantments.FARMERS_KNOWLEDGE), "Farmer's Knowledge");
+        translationBuilder.add(getEnchantmentTranslationKey(Enchantments.REPLANTING), "Replanting");
+        translationBuilder.add("attribute.name.climbing_efficiency", "Climbing Efficiency");
     }
 
     public static String getEnchantmentTranslationKey(RegistryKey<Enchantment> enchantmentRegistryKey) {

@@ -1,6 +1,9 @@
 {
-  "enchantment.nemos-enchantments.soul_binding": "Soul Binding",
+  "attribute.name.climbing_efficiency": "Climbing Efficiency",
   "enchantment.nemos-enchantments.climber": "Climber",
-  "enchantment.nemos-enchantments.sprinter": "Sprinter",
-  "attribute.name.climbing_efficiency": "Climbing Efficiency"
+  "enchantment.nemos-enchantments.farmers_knowledge": "Farmer's Knowledge",
+  "enchantment.nemos-enchantments.reaper": "Reaper",
+  "enchantment.nemos-enchantments.replanting": "Replanting",
+  "enchantment.nemos-enchantments.soul_binding": "Soul Binding",
+  "enchantment.nemos-enchantments.sprinter": "Sprinter"
 }

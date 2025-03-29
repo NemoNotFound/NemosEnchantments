@@ -25,6 +25,7 @@
 	"mixins": [
 		"nemos-enchantments.mixins.json"
 	],
+	"accessWidener": "nemos-enchantments.accesswidener",
 	"depends": {
 		"fabricloader": ">=0.16.10",
 		"minecraft": [
