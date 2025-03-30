@@ -61,7 +61,7 @@ public class Enchantments {
                                         3,
                                         Enchantment.leveledCost(10, 10),
                                         Enchantment.leveledCost(25, 10),
-                                        60,
+                                        4,
                                         AttributeModifierSlot.FEET
                                 )
                         )
@@ -87,7 +87,7 @@ public class Enchantments {
                                         3,
                                         Enchantment.leveledCost(10, 10),
                                         Enchantment.leveledCost(25, 10),
-                                        60,
+                                        4,
                                         AttributeModifierSlot.FEET
                                 )
                         )

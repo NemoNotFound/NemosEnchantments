@@ -29,9 +29,14 @@ public class EnchantmentTagProvider extends FabricTagProvider.EnchantmentTagProv
                 .add(enchantmentRegistryWrapper.getOrThrow(REPLANTING).registryKey());
 
         getOrCreateTagBuilder(EnchantmentTags.ON_RANDOM_LOOT)
-                .add(enchantmentRegistryWrapper.getOrThrow(SOUL_BINDING).registryKey())
+                .add(enchantmentRegistryWrapper.getOrThrow(SOUL_BINDING).registryKey());
+
+        getOrCreateTagBuilder(EnchantmentTags.NON_TREASURE)
                 .add(enchantmentRegistryWrapper.getOrThrow(CLIMBER).registryKey())
-                .add(enchantmentRegistryWrapper.getOrThrow(SPRINTER).registryKey());
+                .add(enchantmentRegistryWrapper.getOrThrow(SPRINTER).registryKey())
+                .add(enchantmentRegistryWrapper.getOrThrow(FARMERS_KNOWLEDGE).registryKey())
+                .add(enchantmentRegistryWrapper.getOrThrow(REAPER).registryKey())
+                .add(enchantmentRegistryWrapper.getOrThrow(REPLANTING).registryKey());
 
         getOrCreateTagBuilder(EnchantmentTags.TREASURE)
                 .add(enchantmentRegistryWrapper.getOrThrow(SOUL_BINDING).registryKey());
@@ -39,6 +44,9 @@ public class EnchantmentTagProvider extends FabricTagProvider.EnchantmentTagProv
         getOrCreateTagBuilder(EnchantmentTags.TRADEABLE)
                 .add(enchantmentRegistryWrapper.getOrThrow(SOUL_BINDING).registryKey())
                 .add(enchantmentRegistryWrapper.getOrThrow(CLIMBER).registryKey())
-                .add(enchantmentRegistryWrapper.getOrThrow(SPRINTER).registryKey());
+                .add(enchantmentRegistryWrapper.getOrThrow(SPRINTER).registryKey())
+                .add(enchantmentRegistryWrapper.getOrThrow(FARMERS_KNOWLEDGE).registryKey())
+                .add(enchantmentRegistryWrapper.getOrThrow(REAPER).registryKey())
+                .add(enchantmentRegistryWrapper.getOrThrow(REPLANTING).registryKey());
     }
 }

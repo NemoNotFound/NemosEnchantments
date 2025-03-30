@@ -1,16 +1,3 @@
-![Nemo's Enchantments](https://github.com/NemoNotFound/NemoNotFound/blob/master/resources/minecraft_projects/titles/png/nemos_enchantments.png?raw=true)
-<br><br>
-
-# Description
-Nemo's Enchantments adds new enchantments, such as 'Soul Binding', 'Sprinter', and 'Climber', to Minecraft and removes the 'Too Expensive' limitation from the anvil! <br>
-To see all enchantments, check the [wiki](https://github.com/NemoNotFound/NemosEnchantments/wiki).
-<br><br>
-
-# Downloads
-- [CurseForge](https://curseforge.com/minecraft/mc-mods/nemos-enchantments)
-- [Modrinth](https://modrinth.com/mod/nemos-enchantments)
-<br><br>
-
 # Join my Discord!
 [![Join my Discord](https://github.com/NemoNotFound/NemoNotFound/blob/master/resources/svg/join_discord_button.svg?raw=true)](https://discord.com/invite/yxs9dga)
 <br><br>
