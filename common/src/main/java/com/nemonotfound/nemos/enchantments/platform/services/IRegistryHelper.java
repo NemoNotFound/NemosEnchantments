@@ -1,8 +1,10 @@
 package com.nemonotfound.nemos.enchantments.platform.services;
 
 import net.minecraft.client.KeyMapping;
+import net.minecraft.core.Holder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -21,4 +23,5 @@ public interface IRegistryHelper {
     <T extends CreativeModeTab> Supplier<T> registerCreativeModeTab(String id, Supplier<T> creativeModeTab);
     CreativeModeTab.Builder createCreativeModeTab();
     Supplier<KeyMapping> registerKeyMapping(KeyMapping keyMapping);
+    Supplier<Holder<Attribute>> registerAttribute(String id, Attribute attribute);
 }

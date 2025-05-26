@@ -16,7 +16,7 @@
     "environment": "*",
     "entrypoints": {
         "main": [
-          "com.nemonotfound.nemos.enchantments.ExampleModFabric"
+            "com.nemonotfound.nemos.enchantments.FabricNemosEnchantments"
         ],
         "fabric-datagen": [
           "com.nemonotfound.nemos.enchantments.DataGenerator"

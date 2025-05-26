@@ -71,7 +71,7 @@ public class ModEnchantments {
                                 EnchantmentEffectComponents.ATTRIBUTES,
                                 new EnchantmentAttributeEffect(
                                         ResourceLocation.fromNamespaceAndPath(MOD_ID, "enchantment.climber"),
-                                        ModAttributes.CLIMBING_EFFICIENCY,
+                                        ModAttributes.CLIMBING_EFFICIENCY.get(),
                                         LevelBasedValue.perLevel(0.05F),
                                         AttributeModifier.Operation.ADD_VALUE
                                 )

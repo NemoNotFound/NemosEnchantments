@@ -27,19 +27,19 @@ public abstract class LivingEntityMixin extends Entity {
 
     @ModifyReturnValue(method = "createLivingAttributes", at = @At("RETURN"))
     private static AttributeSupplier.Builder createLivingAttributes(AttributeSupplier.Builder original) {
-        return original.add(ModAttributes.CLIMBING_EFFICIENCY);
+        return original.add(ModAttributes.CLIMBING_EFFICIENCY.get());
     }
 
     @ModifyVariable(method = "handleRelativeFrictionAndCalculateMovement", at = @At(value = "STORE", ordinal = 1), ordinal = 1)
     private Vec3 modifyMovementDistance(Vec3 vec3) {
-        var climbingEfficiency = getAttributeValue(ModAttributes.CLIMBING_EFFICIENCY);
+        var climbingEfficiency = getAttributeValue(ModAttributes.CLIMBING_EFFICIENCY.get());
 
         return new Vec3(vec3.x, climbingEfficiency, vec3.z);
     }
 
     @ModifyVariable(method = "handleOnClimbable", at = @At(value = "STORE"), ordinal = 2)
     private double modifyMovementDistance(double y, @Local(argsOnly = true) Vec3 vec3) {
-        var climbingEfficiency = getAttributeValue(ModAttributes.CLIMBING_EFFICIENCY);
+        var climbingEfficiency = getAttributeValue(ModAttributes.CLIMBING_EFFICIENCY.get());
 
         return Math.max(vec3.y, -climbingEfficiency + 0.05F);
     }
