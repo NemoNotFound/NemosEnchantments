@@ -1,0 +1,35 @@
+{
+  "anvil_cost": 4,
+  "description": {
+    "translate": "enchantment.nemos_enchantments.sprinter"
+  },
+  "effects": {
+    "minecraft:attributes": [
+      {
+        "amount": {
+          "type": "minecraft:linear",
+          "base": 0.02,
+          "per_level_above_first": 0.02
+        },
+        "attribute": "minecraft:movement_speed",
+        "id": "nemos_enchantments:enchantment.sprinter",
+        "operation": "add_value"
+      }
+    ]
+  },
+  "exclusive_set": "#minecraft:exclusive_set/boots",
+  "max_cost": {
+    "base": 25,
+    "per_level_above_first": 10
+  },
+  "max_level": 3,
+  "min_cost": {
+    "base": 10,
+    "per_level_above_first": 10
+  },
+  "slots": [
+    "feet"
+  ],
+  "supported_items": "#minecraft:enchantable/foot_armor",
+  "weight": 2
+}

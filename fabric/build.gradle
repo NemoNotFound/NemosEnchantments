@@ -10,6 +10,11 @@ dependencies {
     }
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+    include(implementation(annotationProcessor("io.github.llamalad7:mixinextras-fabric:0.5.0-rc.2")))
+}
+
+fabricApi {
+    configureDataGeneration()
 }
 
 base {
@@ -37,7 +42,25 @@ loom {
             ideConfigGenerated(true)
             runDir('runs/server')
         }
+
+        datagen {
+            inherit client
+            name "Data Generation"
+            vmArg "-Dfabric-api.datagen"
+            vmArg "-Dfabric-api.datagen.output-dir=${project(':common').file('src/generated/resources/')}"
+            vmArg "-Dfabric-api.datagen.modid=${mod_id}"
+
+            runDir "build/datagen"
+        }
     }
 }
 
-sourceSets.main.resources { srcDir project.project(':common').file('src/generated/resources/').getAbsolutePath() }
+sourceSets {
+    main {
+        resources {
+            srcDirs += [
+                    project(':common').file('src/generated/resources/').getPath()
+            ]
+        }
+    }
+}

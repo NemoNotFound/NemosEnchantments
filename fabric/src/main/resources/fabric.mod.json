@@ -16,10 +16,10 @@
     "environment": "*",
     "entrypoints": {
         "main": [
-            "com.nemonotfound.examplemod.ExampleModFabric"
+          "com.nemonotfound.nemos.enchantments.ExampleModFabric"
         ],
         "fabric-datagen": [
-            "com.nemonotfound.examplemod.DataGenerator"
+          "com.nemonotfound.nemos.enchantments.DataGenerator"
         ]
     },
     "mixins": [
@@ -34,6 +34,7 @@
     },
     "suggests": {
         "another-mod": "*"
-    }
+    },
+    "accessWidener": "nemos_enchantments.accesswidener"
 }
   
