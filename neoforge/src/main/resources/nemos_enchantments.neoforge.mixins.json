@@ -4,11 +4,15 @@
   "package": "com.nemonotfound.nemos.enchantments.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "FarmBlockMixin"
+    "NeoForgeFarmBlockMixin",
+    "NeoForgeAnvilMenuMixin"
   ],
   "client": [],
   "server": [],
   "injectors": {
     "defaultRequire": 1
+  },
+  "mixinextras": {
+    "minVersion": "0.5.0-rc.2"
   }
 }

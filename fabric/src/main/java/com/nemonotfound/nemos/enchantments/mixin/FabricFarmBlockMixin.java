@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(FarmBlock.class)
-public class FarmBlockMixin {
+public class FabricFarmBlockMixin {
 
     @Definition(id = "random", field = "Lnet/minecraft/world/level/Level;random:Lnet/minecraft/util/RandomSource;")
     @Definition(id = "nextFloat", method = "Lnet/minecraft/util/RandomSource;nextFloat()F")

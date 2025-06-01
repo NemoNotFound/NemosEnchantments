@@ -1,5 +1,5 @@
-# Changelog v1.4.1
+# Changelog v1.4.2
 
 ## Fixes
-- Farmer's Knowledge, Replanting and Reaper do not appear in trades or random loot
-- Sprinter & Climber cost 30 level in anvil
+- Internal fixes
+- Fixed NeoForge crash

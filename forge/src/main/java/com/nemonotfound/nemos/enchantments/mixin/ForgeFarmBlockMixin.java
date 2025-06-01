@@ -15,9 +15,9 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(FarmBlock.class)
-public class FarmBlockMixin {
+public class ForgeFarmBlockMixin {
 
-    @ModifyExpressionValue(method = "fallOn", at = @At(value = "INVOKE", target = "Lnet/neoforged/neoforge/common/CommonHooks;onFarmlandTrample(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;DLnet/minecraft/world/entity/Entity;)Z"))
+    @ModifyExpressionValue(method = "fallOn", at = @At(value = "INVOKE", target = "Lnet/minecraftforge/common/ForgeHooks;onFarmlandTrample(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;DLnet/minecraft/world/entity/Entity;)Z"))
     private boolean fallOn(boolean original, @Local(argsOnly = true) Entity entity, @Local(argsOnly = true) Level level) {
         if (original && entity instanceof Player player) {
             ItemStack boots = player.getItemBySlot(EquipmentSlot.FEET);

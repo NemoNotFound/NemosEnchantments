@@ -7,7 +7,6 @@
   "mixins": [
     "AbstractHorseMixin",
     "AllayMixin",
-    "AnvilMenuMixin",
     "BlockMixin",
     "HoeItemMixin",
     "LivingEntityMixin",
