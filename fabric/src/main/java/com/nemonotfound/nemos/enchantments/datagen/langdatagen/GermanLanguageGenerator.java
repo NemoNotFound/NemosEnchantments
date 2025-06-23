@@ -23,6 +23,7 @@ public class GermanLanguageGenerator extends FabricLanguageProvider {
         translationBuilder.add(getEnchantmentTranslationKey(ModEnchantments.REAPER), "Mäher");
         translationBuilder.add(getEnchantmentTranslationKey(ModEnchantments.FARMERS_KNOWLEDGE), "Wissen des Bauern");
         translationBuilder.add(getEnchantmentTranslationKey(ModEnchantments.REPLANTING), "Wiederbepflanzung");
+        translationBuilder.add(getEnchantmentTranslationKey(ModEnchantments.MAGMA_WALKER), "Magmaläufer");
         translationBuilder.add("attribute.name.climbing_efficiency", "Klettereffizienz");
     }
 }

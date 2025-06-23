@@ -6,6 +6,7 @@
   "effects": {
     "minecraft:prevent_equipment_drop": {}
   },
+  "exclusive_set": "#minecraft:curse",
   "max_cost": {
     "base": 75,
     "per_level_above_first": 25

@@ -23,6 +23,7 @@ public class EnglishLanguageGenerator extends FabricLanguageProvider {
         translationBuilder.add(getEnchantmentTranslationKey(ModEnchantments.REAPER), "Reaper");
         translationBuilder.add(getEnchantmentTranslationKey(ModEnchantments.FARMERS_KNOWLEDGE), "Farmer's Knowledge");
         translationBuilder.add(getEnchantmentTranslationKey(ModEnchantments.REPLANTING), "Replanting");
+        translationBuilder.add(getEnchantmentTranslationKey(ModEnchantments.MAGMA_WALKER), "Magma Walker");
         translationBuilder.add("attribute.name.climbing_efficiency", "Climbing Efficiency");
     }
 

@@ -1,6 +1,0 @@
-// 1.21.5	-999999999-01-01T00:00:00	Nemo's Enchantments/Tags for minecraft:enchantment
-3f6d04840a0fe1bbf77cdf7501a2e8a81075370a data/minecraft/tags/enchantment/in_enchanting_table.json
-3f6d04840a0fe1bbf77cdf7501a2e8a81075370a data/minecraft/tags/enchantment/non_treasure.json
-1c1abddc1f3ccac245485c7ec2137c63080df378 data/minecraft/tags/enchantment/on_random_loot.json
-35560a152d699aaf8b820f4c9002a64d6e6ccc9f data/minecraft/tags/enchantment/tradeable.json
-1c1abddc1f3ccac245485c7ec2137c63080df378 data/minecraft/tags/enchantment/treasure.json
