@@ -8,7 +8,8 @@ Not even death will make you lose this item.
 **Anvil Cost:** 30 <br>
 **Applicable To:** All Items <br>
 **Available in Enchanting Table:** No <br>
-**Tradeable with Villagers:** Yes
+**Tradeable with Villagers:** Yes   
+**Not compatible with:** Curses
 <br>
 <br>
 
@@ -79,3 +80,16 @@ Now, you can break crops in an area of A x A x A, where A = 2 * Enchantment Leve
 **Applicable To:** Hoes <br>
 **Available in Enchanting Table:** Yes <br>
 **Tradeable with Villagers:** Yes <br>
+<br><br>
+
+# Magma Walker
+## Description
+Turns lava into magma blocks.
+
+## Details
+**Maximum Level:** 1 <br>
+**Anvil Cost:** 4 <br>
+**Applicable To:** Foot Armor <br>
+**Available in Enchanting Table:** No <br>
+**Tradeable with Villagers:** Yes   
+**Not compatible with:** Depth Strider & Frost Walker
