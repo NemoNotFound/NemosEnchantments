@@ -23,13 +23,13 @@ public class ForgeNemosEnchantments {
     public static final DeferredRegister<Attribute> ATTRIBUTE = DeferredRegister.create(ForgeRegistries.ATTRIBUTES, MOD_ID);
 
     public ForgeNemosEnchantments(FMLJavaModLoadingContext context) {
-        final var modEventBus = context.getModEventBus();
+        final var modBusGroup = context.getModBusGroup();
         CommonClass.init();
 
-        BLOCKS.register(modEventBus);
-        ENTITIES.register(modEventBus);
-        ITEMS.register(modEventBus);
-        CREATIVE_TABS.register(modEventBus);
-        ATTRIBUTE.register(modEventBus);
+        BLOCKS.register(modBusGroup);
+        ENTITIES.register(modBusGroup);
+        ITEMS.register(modBusGroup);
+        CREATIVE_TABS.register(modBusGroup);
+        ATTRIBUTE.register(modBusGroup);
     }
 }
