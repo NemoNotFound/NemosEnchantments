@@ -1,4 +1,8 @@
-# Changelog v1.5.0.1
+# Changelog v1.6
 
-## Fixes
-- Fix some features that didn't work on forge
+## Additions
+- Added Snow Walker
+  - Lets you walk on powdered snow
+
+## Changes
+- Magma Walker is now compatible with Depth Strider or Frost Walker

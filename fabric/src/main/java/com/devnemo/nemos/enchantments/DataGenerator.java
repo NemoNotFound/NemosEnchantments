@@ -4,7 +4,7 @@ import com.devnemo.nemos.enchantments.datagen.EnchantmentTagProvider;
 import com.devnemo.nemos.enchantments.datagen.RegistryProvider;
 import com.devnemo.nemos.enchantments.datagen.langdatagen.EnglishLanguageGenerator;
 import com.devnemo.nemos.enchantments.datagen.langdatagen.GermanLanguageGenerator;
-import com.devnemo.nemos.enchantments.enchantment.ModEnchantments;
+import com.devnemo.nemos.enchantments.enchantment.NemosEnchantments;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.core.RegistrySetBuilder;
@@ -24,6 +24,6 @@ public class DataGenerator implements DataGeneratorEntrypoint {
 
     @Override
     public void buildRegistry(RegistrySetBuilder registryBuilder) {
-        registryBuilder.add(Registries.ENCHANTMENT, ModEnchantments::bootstrap);
+        registryBuilder.add(Registries.ENCHANTMENT, NemosEnchantments::bootstrap);
     }
 }

@@ -1,7 +1,7 @@
 package com.devnemo.nemos.enchantments.enchantment;
 
 import com.devnemo.nemos.enchantments.Constants;
-import com.devnemo.nemos.enchantments.entity.attribute.ModAttributes;
+import com.devnemo.nemos.enchantments.entity.attribute.NemosAttributes;
 import net.minecraft.advancements.critereon.DamageSourcePredicate;
 import net.minecraft.advancements.critereon.EntityFlagsPredicate;
 import net.minecraft.advancements.critereon.EntityPredicate;
@@ -39,7 +39,7 @@ import java.util.Optional;
 
 import static com.devnemo.nemos.enchantments.Constants.MOD_ID;
 
-public class ModEnchantments {
+public class  NemosEnchantments {
 
     public static final ResourceKey<Enchantment> SOUL_BINDING = createResourceKey("soul_binding");
     public static final ResourceKey<Enchantment> CLIMBER = createResourceKey("climber");
@@ -48,6 +48,7 @@ public class ModEnchantments {
     public static final ResourceKey<Enchantment> REAPER = createResourceKey("reaper");
     public static final ResourceKey<Enchantment> REPLANTING = createResourceKey("replanting");
     public static final ResourceKey<Enchantment> MAGMA_WALKER = createResourceKey("magma_walker");
+    public static final ResourceKey<Enchantment> SNOW_WALKER = createResourceKey("snow_walker");
 
     public static void bootstrap(BootstrapContext<Enchantment> context) {
         Constants.LOG.info("Registering enchantments");
@@ -91,7 +92,7 @@ public class ModEnchantments {
                                 EnchantmentEffectComponents.ATTRIBUTES,
                                 new EnchantmentAttributeEffect(
                                         ResourceLocation.fromNamespaceAndPath(MOD_ID, "enchantment.climber"),
-                                        ModAttributes.CLIMBING_EFFICIENCY.get(),
+                                        NemosAttributes.CLIMBING_EFFICIENCY.get(),
                                         LevelBasedValue.perLevel(0.05F),
                                         AttributeModifier.Operation.ADD_VALUE
                                 )
@@ -221,6 +222,22 @@ public class ModEnchantments {
                                                         LootContext.EntityTarget.THIS, EntityPredicate.Builder.entity().vehicle(EntityPredicate.Builder.entity())
                                                 )
                                         )
+                                )
+                        )
+        );
+
+        register(
+                context,
+                SNOW_WALKER,
+                Enchantment.enchantment(
+                                Enchantment.definition(
+                                        itemLookup.getOrThrow(ItemTags.FOOT_ARMOR_ENCHANTABLE),
+                                        2,
+                                        1,
+                                        Enchantment.dynamicCost(10, 10),
+                                        Enchantment.dynamicCost(25, 10),
+                                        4,
+                                        EquipmentSlotGroup.FEET
                                 )
                         )
         );

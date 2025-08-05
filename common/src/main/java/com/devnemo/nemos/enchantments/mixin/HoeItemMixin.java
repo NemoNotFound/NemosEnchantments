@@ -1,6 +1,6 @@
 package com.devnemo.nemos.enchantments.mixin;
 
-import com.devnemo.nemos.enchantments.enchantment.ModEnchantments;
+import com.devnemo.nemos.enchantments.enchantment.NemosEnchantments;
 import com.devnemo.nemos.enchantments.utils.EnchantmentUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.LivingEntity;
@@ -42,7 +42,7 @@ public class HoeItemMixin extends Item {
         boolean isBlockCropBlock = block instanceof CropBlock;
 
         if (isBlockCropBlock) {
-            boolean hasFarmersKnowledge = hasEnchantment(level, ModEnchantments.FARMERS_KNOWLEDGE, hoe);
+            boolean hasFarmersKnowledge = hasEnchantment(level, NemosEnchantments.FARMERS_KNOWLEDGE, hoe);
             boolean isCropRipe = ((CropBlock) block).isMaxAge(state);
 
             if (hasFarmersKnowledge) {
@@ -57,10 +57,10 @@ public class HoeItemMixin extends Item {
     public boolean mineBlock(@NotNull ItemStack stack, @NotNull Level level, BlockState state, @NotNull BlockPos pos, LivingEntity miner) {
         ItemStack hoe = miner.getMainHandItem();
         boolean isBlockCropBlock = state.getBlock() instanceof CropBlock;
-        boolean hasHoeReaperEnchantment = hasEnchantment(level, ModEnchantments.REAPER, hoe);
+        boolean hasHoeReaperEnchantment = hasEnchantment(level, NemosEnchantments.REAPER, hoe);
 
         if (isBlockCropBlock && hasHoeReaperEnchantment) {
-            int enchantmentLevel = EnchantmentUtils.getEnchantmentLevel(level, ModEnchantments.REAPER, hoe);
+            int enchantmentLevel = EnchantmentUtils.getEnchantmentLevel(level, NemosEnchantments.REAPER, hoe);
             int breakingRange = 2 * enchantmentLevel + 1;
 
             for (int i = 0; i < Math.pow(breakingRange, 3); i++) {
@@ -108,7 +108,7 @@ public class HoeItemMixin extends Item {
         Block.dropResources(blockState, level, pos, blockEntity, breakingEntity, breakingEntity.getMainHandItem());
 
 
-        if (!hasEnchantment(level, ModEnchantments.REPLANTING, breakingEntity.getMainHandItem()) && nemosFarming_setBlockState(level, pos)) {
+        if (!hasEnchantment(level, NemosEnchantments.REPLANTING, breakingEntity.getMainHandItem()) && nemosFarming_setBlockState(level, pos)) {
             level.gameEvent(GameEvent.BLOCK_DESTROY, pos, GameEvent.Context.of(breakingEntity, blockState));
         }
     }

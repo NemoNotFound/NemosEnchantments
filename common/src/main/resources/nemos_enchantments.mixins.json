@@ -12,6 +12,7 @@
     "LivingEntityMixin",
     "MobEntityMixin",
     "PlayerEntityMixin",
+    "PowderSnowBlockMixin",
     "ServerPlayerEntityMixin"
   ],
   "client": [

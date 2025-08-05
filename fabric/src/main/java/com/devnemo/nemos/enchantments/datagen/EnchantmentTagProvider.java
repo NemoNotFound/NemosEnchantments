@@ -9,7 +9,7 @@ import net.minecraft.world.item.enchantment.Enchantment;
 
 import java.util.concurrent.CompletableFuture;
 
-import static com.devnemo.nemos.enchantments.enchantment.ModEnchantments.*;
+import static com.devnemo.nemos.enchantments.enchantment.NemosEnchantments.*;
 
 public class EnchantmentTagProvider extends FabricTagProvider<Enchantment> {
 
@@ -24,18 +24,21 @@ public class EnchantmentTagProvider extends FabricTagProvider<Enchantment> {
                 .add(SPRINTER)
                 .add(FARMERS_KNOWLEDGE)
                 .add(REAPER)
-                .add(REPLANTING);
+                .add(REPLANTING)
+                .add(SNOW_WALKER);
 
         builder(EnchantmentTags.ON_RANDOM_LOOT)
                 .add(SOUL_BINDING)
-                .add(MAGMA_WALKER);
+                .add(MAGMA_WALKER)
+                .add(SNOW_WALKER);
 
         builder(EnchantmentTags.NON_TREASURE)
                 .add(CLIMBER)
                 .add(SPRINTER)
                 .add(FARMERS_KNOWLEDGE)
                 .add(REAPER)
-                .add(REPLANTING);
+                .add(REPLANTING)
+                .add(SNOW_WALKER);
 
         builder(EnchantmentTags.TREASURE)
                 .add(SOUL_BINDING)
@@ -48,9 +51,7 @@ public class EnchantmentTagProvider extends FabricTagProvider<Enchantment> {
                 .add(FARMERS_KNOWLEDGE)
                 .add(REAPER)
                 .add(REPLANTING)
-                .add(MAGMA_WALKER);
-
-        builder(EnchantmentTags.BOOTS_EXCLUSIVE)
-                .add(MAGMA_WALKER);
+                .add(MAGMA_WALKER)
+                .add(SNOW_WALKER);
     }
 }

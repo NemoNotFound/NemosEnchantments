@@ -1,6 +1,6 @@
 package com.devnemo.nemos.enchantments.datagen.langdatagen;
 
-import com.devnemo.nemos.enchantments.enchantment.ModEnchantments;
+import com.devnemo.nemos.enchantments.enchantment.NemosEnchantments;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
@@ -17,13 +17,14 @@ public class GermanLanguageGenerator extends FabricLanguageProvider {
 
     @Override
     public void generateTranslations(HolderLookup.Provider registryLookup, TranslationBuilder translationBuilder) {
-        translationBuilder.add(getEnchantmentTranslationKey(ModEnchantments.SOUL_BINDING), "Seelenbindung");
-        translationBuilder.add(getEnchantmentTranslationKey(ModEnchantments.CLIMBER), "Kletterer");
-        translationBuilder.add(getEnchantmentTranslationKey(ModEnchantments.SPRINTER), "Sprinter");
-        translationBuilder.add(getEnchantmentTranslationKey(ModEnchantments.REAPER), "Mäher");
-        translationBuilder.add(getEnchantmentTranslationKey(ModEnchantments.FARMERS_KNOWLEDGE), "Wissen des Bauern");
-        translationBuilder.add(getEnchantmentTranslationKey(ModEnchantments.REPLANTING), "Wiederbepflanzung");
-        translationBuilder.add(getEnchantmentTranslationKey(ModEnchantments.MAGMA_WALKER), "Magmaläufer");
+        translationBuilder.add(getEnchantmentTranslationKey(NemosEnchantments.SOUL_BINDING), "Seelenbindung");
+        translationBuilder.add(getEnchantmentTranslationKey(NemosEnchantments.CLIMBER), "Kletterer");
+        translationBuilder.add(getEnchantmentTranslationKey(NemosEnchantments.SPRINTER), "Sprinter");
+        translationBuilder.add(getEnchantmentTranslationKey(NemosEnchantments.REAPER), "Mäher");
+        translationBuilder.add(getEnchantmentTranslationKey(NemosEnchantments.FARMERS_KNOWLEDGE), "Wissen des Bauern");
+        translationBuilder.add(getEnchantmentTranslationKey(NemosEnchantments.REPLANTING), "Wiederbepflanzung");
+        translationBuilder.add(getEnchantmentTranslationKey(NemosEnchantments.MAGMA_WALKER), "Magmaläufer");
+        translationBuilder.add(getEnchantmentTranslationKey(NemosEnchantments.SNOW_WALKER), "Schneeläufer");
         translationBuilder.add("attribute.name.climbing_efficiency", "Klettereffizienz");
     }
 }

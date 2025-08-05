@@ -1,7 +1,7 @@
 package com.devnemo.nemos.enchantments.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import com.devnemo.nemos.enchantments.enchantment.ModEnchantments;
+import com.devnemo.nemos.enchantments.enchantment.NemosEnchantments;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.ItemTags;
@@ -35,7 +35,7 @@ public class BlockMixin {
     ) {
         Block block = blockState.getBlock();
 
-        if (block instanceof CropBlock && itemStack.is(ItemTags.HOES) && hasEnchantment(serverLevel, ModEnchantments.REPLANTING, itemStack)) {
+        if (block instanceof CropBlock && itemStack.is(ItemTags.HOES) && hasEnchantment(serverLevel, NemosEnchantments.REPLANTING, itemStack)) {
             nemosFarming_replantCrops(serverLevel, blockPos, blockState, block, original);
         }
 

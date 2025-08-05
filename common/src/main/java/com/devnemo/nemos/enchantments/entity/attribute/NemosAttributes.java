@@ -7,7 +7,7 @@ import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 
 import java.util.function.Supplier;
 
-public class ModAttributes {
+public class NemosAttributes {
 
     public static final Supplier<Holder<Attribute>> CLIMBING_EFFICIENCY = register(
             "climbing_efficiency", new RangedAttribute("attribute.name.climbing_efficiency", 0.2, 0.2, 1.0).setSyncable(true)
