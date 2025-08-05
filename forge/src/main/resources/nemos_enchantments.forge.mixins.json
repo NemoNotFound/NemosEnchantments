@@ -4,8 +4,9 @@
   "package": "com.devnemo.nemos.enchantments.mixin",
   "compatibilityLevel": "JAVA_18",
   "mixins": [
-    "ForgeFarmBlockMixin",
-    "ForgeAnvilMenuMixin"
+    "ForgeAnvilMenuMixin",
+    "ForgeBlockMixin",
+    "ForgeFarmBlockMixin"
   ],
   "client": [],
   "server": [],

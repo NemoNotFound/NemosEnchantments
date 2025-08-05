@@ -25,12 +25,14 @@ public class EnchantmentTagProvider extends FabricTagProvider<Enchantment> {
                 .add(FARMERS_KNOWLEDGE)
                 .add(REAPER)
                 .add(REPLANTING)
-                .add(SNOW_WALKER);
+                .add(SNOW_WALKER)
+                .add(COLLECTOR);
 
         builder(EnchantmentTags.ON_RANDOM_LOOT)
                 .add(SOUL_BINDING)
                 .add(MAGMA_WALKER)
-                .add(SNOW_WALKER);
+                .add(SNOW_WALKER)
+                .add(COLLECTOR);
 
         builder(EnchantmentTags.NON_TREASURE)
                 .add(CLIMBER)
@@ -38,7 +40,8 @@ public class EnchantmentTagProvider extends FabricTagProvider<Enchantment> {
                 .add(FARMERS_KNOWLEDGE)
                 .add(REAPER)
                 .add(REPLANTING)
-                .add(SNOW_WALKER);
+                .add(SNOW_WALKER)
+                .add(COLLECTOR);
 
         builder(EnchantmentTags.TREASURE)
                 .add(SOUL_BINDING)
@@ -52,6 +55,7 @@ public class EnchantmentTagProvider extends FabricTagProvider<Enchantment> {
                 .add(REAPER)
                 .add(REPLANTING)
                 .add(MAGMA_WALKER)
-                .add(SNOW_WALKER);
+                .add(SNOW_WALKER)
+                .add(COLLECTOR);
     }
 }

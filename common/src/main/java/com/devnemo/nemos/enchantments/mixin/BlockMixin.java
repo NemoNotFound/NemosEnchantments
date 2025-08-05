@@ -1,7 +1,7 @@
 package com.devnemo.nemos.enchantments.mixin;
 
-import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.devnemo.nemos.enchantments.enchantment.NemosEnchantments;
+import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.ItemTags;
@@ -54,5 +54,4 @@ public class BlockMixin {
             }
         }
     }
-
 }

@@ -25,6 +25,7 @@ public class EnglishLanguageGenerator extends FabricLanguageProvider {
         translationBuilder.add(getEnchantmentTranslationKey(NemosEnchantments.REPLANTING), "Replanting");
         translationBuilder.add(getEnchantmentTranslationKey(NemosEnchantments.MAGMA_WALKER), "Magma Walker");
         translationBuilder.add(getEnchantmentTranslationKey(NemosEnchantments.SNOW_WALKER), "Snow Walker");
+        translationBuilder.add(getEnchantmentTranslationKey(NemosEnchantments.COLLECTOR), "Collector");
         translationBuilder.add("attribute.name.climbing_efficiency", "Climbing Efficiency");
     }
 

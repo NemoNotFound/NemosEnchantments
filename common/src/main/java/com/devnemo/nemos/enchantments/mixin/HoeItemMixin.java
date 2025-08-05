@@ -13,7 +13,6 @@ import net.minecraft.world.level.block.BaseFireBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.LevelEvent;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.material.FluidState;
@@ -103,10 +102,6 @@ public class HoeItemMixin extends Item {
         if (!(blockState.getBlock() instanceof BaseFireBlock)) {
             level.levelEvent(LevelEvent.PARTICLES_DESTROY_BLOCK, pos, Block.getId(blockState));
         }
-
-        BlockEntity blockEntity = blockState.hasBlockEntity() ? level.getBlockEntity(pos) : null;
-        Block.dropResources(blockState, level, pos, blockEntity, breakingEntity, breakingEntity.getMainHandItem());
-
 
         if (!hasEnchantment(level, NemosEnchantments.REPLANTING, breakingEntity.getMainHandItem()) && nemosFarming_setBlockState(level, pos)) {
             level.gameEvent(GameEvent.BLOCK_DESTROY, pos, GameEvent.Context.of(breakingEntity, blockState));

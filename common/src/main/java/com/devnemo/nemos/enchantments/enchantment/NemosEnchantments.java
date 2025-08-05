@@ -49,6 +49,7 @@ public class  NemosEnchantments {
     public static final ResourceKey<Enchantment> REPLANTING = createResourceKey("replanting");
     public static final ResourceKey<Enchantment> MAGMA_WALKER = createResourceKey("magma_walker");
     public static final ResourceKey<Enchantment> SNOW_WALKER = createResourceKey("snow_walker");
+    public static final ResourceKey<Enchantment> COLLECTOR = createResourceKey("collector");
 
     public static void bootstrap(BootstrapContext<Enchantment> context) {
         Constants.LOG.info("Registering enchantments");
@@ -240,6 +241,22 @@ public class  NemosEnchantments {
                                         EquipmentSlotGroup.FEET
                                 )
                         )
+        );
+
+        register(
+                context,
+                COLLECTOR,
+                Enchantment.enchantment(
+                        Enchantment.definition(
+                                itemLookup.getOrThrow(ItemTags.DURABILITY_ENCHANTABLE),
+                                2,
+                                1,
+                                Enchantment.dynamicCost(10, 10),
+                                Enchantment.dynamicCost(25, 10),
+                                8,
+                                EquipmentSlotGroup.ANY
+                        )
+                )
         );
     }
 
