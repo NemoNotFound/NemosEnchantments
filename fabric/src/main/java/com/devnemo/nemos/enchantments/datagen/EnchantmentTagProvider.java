@@ -19,7 +19,7 @@ public class EnchantmentTagProvider extends FabricTagProvider<Enchantment> {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-        builder(EnchantmentTags.IN_ENCHANTING_TABLE)
+        getOrCreateTagBuilder(EnchantmentTags.IN_ENCHANTING_TABLE)
                 .add(CLIMBER)
                 .add(SPRINTER)
                 .add(FARMERS_KNOWLEDGE)
@@ -28,13 +28,13 @@ public class EnchantmentTagProvider extends FabricTagProvider<Enchantment> {
                 .add(SNOW_WALKER)
                 .add(COLLECTOR);
 
-        builder(EnchantmentTags.ON_RANDOM_LOOT)
+        getOrCreateTagBuilder(EnchantmentTags.ON_RANDOM_LOOT)
                 .add(SOUL_BINDING)
                 .add(MAGMA_WALKER)
                 .add(SNOW_WALKER)
                 .add(COLLECTOR);
 
-        builder(EnchantmentTags.NON_TREASURE)
+        getOrCreateTagBuilder(EnchantmentTags.NON_TREASURE)
                 .add(CLIMBER)
                 .add(SPRINTER)
                 .add(FARMERS_KNOWLEDGE)
@@ -43,11 +43,11 @@ public class EnchantmentTagProvider extends FabricTagProvider<Enchantment> {
                 .add(SNOW_WALKER)
                 .add(COLLECTOR);
 
-        builder(EnchantmentTags.TREASURE)
+        getOrCreateTagBuilder(EnchantmentTags.TREASURE)
                 .add(SOUL_BINDING)
                 .add(MAGMA_WALKER);
 
-        builder(EnchantmentTags.TRADEABLE)
+        getOrCreateTagBuilder(EnchantmentTags.TRADEABLE)
                 .add(SOUL_BINDING)
                 .add(CLIMBER)
                 .add(SPRINTER)
