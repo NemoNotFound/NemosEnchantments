@@ -18,7 +18,7 @@ public class ItemTagProvider extends FabricTagProvider<Item> {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-        builder(EnchantmentItemTags.WISDOM_ENCHANTABLE)
+        getOrCreateTagBuilder(EnchantmentItemTags.WISDOM_ENCHANTABLE)
                 .forceAddTag(ItemTags.MINING_ENCHANTABLE)
                 .forceAddTag(ItemTags.BOW_ENCHANTABLE)
                 .forceAddTag(ItemTags.CROSSBOW_ENCHANTABLE)
