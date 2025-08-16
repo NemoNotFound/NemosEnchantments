@@ -2,6 +2,7 @@ package com.devnemo.nemos.enchantments.enchantment;
 
 import com.devnemo.nemos.enchantments.Constants;
 import com.devnemo.nemos.enchantments.entity.attribute.NemosAttributes;
+import com.devnemo.nemos.enchantments.tags.EnchantmentItemTags;
 import net.minecraft.advancements.critereon.DamageSourcePredicate;
 import net.minecraft.advancements.critereon.EntityFlagsPredicate;
 import net.minecraft.advancements.critereon.EntityPredicate;
@@ -50,6 +51,7 @@ public class  NemosEnchantments {
     public static final ResourceKey<Enchantment> MAGMA_WALKER = createResourceKey("magma_walker");
     public static final ResourceKey<Enchantment> SNOW_WALKER = createResourceKey("snow_walker");
     public static final ResourceKey<Enchantment> COLLECTOR = createResourceKey("collector");
+    public static final ResourceKey<Enchantment> WISDOM = createResourceKey("wisdom");
 
     public static void bootstrap(BootstrapContext<Enchantment> context) {
         Constants.LOG.info("Registering enchantments");
@@ -81,7 +83,7 @@ public class  NemosEnchantments {
                 Enchantment.enchantment(
                                 Enchantment.definition(
                                         itemLookup.getOrThrow(ItemTags.FOOT_ARMOR_ENCHANTABLE),
-                                        2,
+                                        4,
                                         3,
                                         Enchantment.dynamicCost(10, 10),
                                         Enchantment.dynamicCost(25, 10),
@@ -106,7 +108,7 @@ public class  NemosEnchantments {
                 Enchantment.enchantment(
                                 Enchantment.definition(
                                         itemLookup.getOrThrow(ItemTags.FOOT_ARMOR_ENCHANTABLE),
-                                        2,
+                                        4,
                                         3,
                                         Enchantment.dynamicCost(10, 10),
                                         Enchantment.dynamicCost(25, 10),
@@ -131,7 +133,7 @@ public class  NemosEnchantments {
                 Enchantment.enchantment(
                         Enchantment.definition(
                                 itemLookup.getOrThrow(ItemTags.HOES),
-                                1,
+                                3,
                                 1,
                                 Enchantment.constantCost(15),
                                 Enchantment.constantCost(65),
@@ -147,7 +149,7 @@ public class  NemosEnchantments {
                 Enchantment.enchantment(
                         Enchantment.definition(
                                 itemLookup.getOrThrow(ItemTags.HOES),
-                                1,
+                                3,
                                 1,
                                 Enchantment.constantCost(15),
                                 Enchantment.constantCost(65),
@@ -163,7 +165,7 @@ public class  NemosEnchantments {
                 Enchantment.enchantment(
                         Enchantment.definition(
                                 itemLookup.getOrThrow(ItemTags.HOES),
-                                2,
+                                3,
                                 3,
                                 Enchantment.dynamicCost(15, 9),
                                 Enchantment.dynamicCost(65, 9),
@@ -249,7 +251,7 @@ public class  NemosEnchantments {
                 Enchantment.enchantment(
                         Enchantment.definition(
                                 itemLookup.getOrThrow(ItemTags.DURABILITY_ENCHANTABLE),
-                                2,
+                                3,
                                 1,
                                 Enchantment.dynamicCost(10, 10),
                                 Enchantment.dynamicCost(25, 10),
@@ -257,6 +259,31 @@ public class  NemosEnchantments {
                                 EquipmentSlotGroup.ANY
                         )
                 )
+        );
+
+        register(
+                context,
+                WISDOM,
+                Enchantment.enchantment(
+                                Enchantment.definition(
+                                        itemLookup.getOrThrow(EnchantmentItemTags.WISDOM_ENCHANTABLE),
+                                        2,
+                                        3,
+                                        Enchantment.dynamicCost(10, 10),
+                                        Enchantment.dynamicCost(25, 10),
+                                        10,
+                                        EquipmentSlotGroup.MAINHAND
+                                )
+                        )
+                        .withEffect(
+                                EnchantmentEffectComponents.ATTRIBUTES,
+                                new EnchantmentAttributeEffect(
+                                        ResourceLocation.withDefaultNamespace("enchantment.wisdom"),
+                                        NemosAttributes.EXPERIENCE_BONUS.get(),
+                                        LevelBasedValue.perLevel(1.0F, 1.0F),
+                                        AttributeModifier.Operation.ADD_VALUE
+                                )
+                        )
         );
     }
 

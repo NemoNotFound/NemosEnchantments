@@ -1,18 +1,18 @@
 {
-  "anvil_cost": 4,
+  "anvil_cost": 10,
   "description": {
-    "translate": "enchantment.nemos_enchantments.sprinter"
+    "translate": "enchantment.nemos_enchantments.wisdom"
   },
   "effects": {
     "minecraft:attributes": [
       {
         "amount": {
           "type": "minecraft:linear",
-          "base": 0.02,
-          "per_level_above_first": 0.02
+          "base": 1.0,
+          "per_level_above_first": 1.0
         },
-        "attribute": "minecraft:movement_speed",
-        "id": "nemos_enchantments:enchantment.sprinter",
+        "attribute": "nemos_enchantments:experience_bonus",
+        "id": "minecraft:enchantment.wisdom",
         "operation": "add_value"
       }
     ]
@@ -27,8 +27,8 @@
     "per_level_above_first": 10
   },
   "slots": [
-    "feet"
+    "mainhand"
   ],
-  "supported_items": "#minecraft:enchantable/foot_armor",
-  "weight": 4
+  "supported_items": "#nemos_enchantments:enchantable/wisdom",
+  "weight": 2
 }
