@@ -1,5 +1,6 @@
 {
   "attribute.name.climbing_efficiency": "Climbing Efficiency",
+  "attribute.name.experience_bonus": "Experience Bonus",
   "enchantment.nemos_enchantments.climber": "Climber",
   "enchantment.nemos_enchantments.collector": "Collector",
   "enchantment.nemos_enchantments.farmers_knowledge": "Farmer's Knowledge",
@@ -8,5 +9,6 @@
   "enchantment.nemos_enchantments.replanting": "Replanting",
   "enchantment.nemos_enchantments.snow_walker": "Snow Walker",
   "enchantment.nemos_enchantments.soul_binding": "Soul Binding",
-  "enchantment.nemos_enchantments.sprinter": "Sprinter"
+  "enchantment.nemos_enchantments.sprinter": "Sprinter",
+  "enchantment.nemos_enchantments.wisdom": "Wisdom"
 }

@@ -1,6 +1,7 @@
 package com.devnemo.nemos.enchantments;
 
 import com.devnemo.nemos.enchantments.datagen.EnchantmentTagProvider;
+import com.devnemo.nemos.enchantments.datagen.ItemTagProvider;
 import com.devnemo.nemos.enchantments.datagen.RegistryProvider;
 import com.devnemo.nemos.enchantments.datagen.langdatagen.EnglishLanguageGenerator;
 import com.devnemo.nemos.enchantments.datagen.langdatagen.GermanLanguageGenerator;
@@ -20,6 +21,7 @@ public class DataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(EnchantmentTagProvider::new);
         pack.addProvider(EnglishLanguageGenerator::new);
         pack.addProvider(GermanLanguageGenerator::new);
+        pack.addProvider(ItemTagProvider::new);
     }
 
     @Override

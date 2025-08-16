@@ -1,7 +1,10 @@
 package com.devnemo.nemos.enchantments.mixin;
 
 import com.devnemo.nemos.enchantments.enchantment.NemosEnchantments;
+import com.devnemo.nemos.enchantments.utils.EnchantmentUtils;
+import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
+import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.ItemTags;
@@ -40,6 +43,13 @@ public class BlockMixin {
         }
 
         return original;
+    }
+
+    @ModifyExpressionValue(method = "tryDropExperience", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/enchantment/EnchantmentHelper;processBlockExperience(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/item/ItemStack;I)I"))
+    private int modifyExperienceAmount(int original, @Local(argsOnly = true) ServerLevel level, @Local(argsOnly = true) ItemStack item) {
+        var multiplier = EnchantmentUtils.getEnchantmentLevel(level, NemosEnchantments.WISDOM, item) + 1;
+
+        return original * multiplier;
     }
 
     @Unique
