@@ -13,7 +13,7 @@ public class NemosAttributes {
             "climbing_efficiency", new RangedAttribute("attribute.name.climbing_efficiency", 0.2, 0.2, 1.0).setSyncable(true)
     );
     public static final Supplier<Holder<Attribute>> EXPERIENCE_BONUS = register(
-            "experience_bonus", new RangedAttribute("attribute.name.experience_bonus", 1, 1, 4).setSyncable(true)
+            "experience_bonus", new RangedAttribute("attribute.name.experience_bonus", 1, 1, 3).setSyncable(true)
     );
 
     public static void init() {}

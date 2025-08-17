@@ -50,7 +50,6 @@ public class EnchantmentTagProvider extends FabricTagProvider<Enchantment> {
                 .add(WISDOM);
 
         builder(EnchantmentTags.TRADEABLE)
-                .add(SOUL_BINDING)
                 .add(CLIMBER)
                 .add(SPRINTER)
                 .add(FARMERS_KNOWLEDGE)
@@ -58,7 +57,6 @@ public class EnchantmentTagProvider extends FabricTagProvider<Enchantment> {
                 .add(REPLANTING)
                 .add(MAGMA_WALKER)
                 .add(SNOW_WALKER)
-                .add(COLLECTOR)
-                .add(WISDOM);
+                .add(COLLECTOR);
     }
 }

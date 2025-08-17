@@ -7,9 +7,17 @@
     "minecraft:attributes": [
       {
         "amount": {
-          "type": "minecraft:linear",
-          "base": 1.0,
-          "per_level_above_first": 1.0
+          "type": "minecraft:lookup",
+          "fallback": {
+            "type": "minecraft:linear",
+            "base": 1.5,
+            "per_level_above_first": 0.5
+          },
+          "values": [
+            0.5,
+            1.0,
+            2.0
+          ]
         },
         "attribute": "nemos_enchantments:experience_bonus",
         "id": "minecraft:enchantment.wisdom",
@@ -29,6 +37,6 @@
   "slots": [
     "mainhand"
   ],
-  "supported_items": "#nemos_enchantments:enchantable/wisdom",
+  "supported_items": "#minecraft:enchantable/mining",
   "weight": 2
 }

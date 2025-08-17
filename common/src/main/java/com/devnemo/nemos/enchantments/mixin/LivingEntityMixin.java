@@ -1,9 +1,9 @@
 package com.devnemo.nemos.enchantments.mixin;
 
+import com.devnemo.nemos.enchantments.entity.attribute.NemosAttributes;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.llamalad7.mixinextras.sugar.Local;
-import com.devnemo.nemos.enchantments.entity.attribute.NemosAttributes;
 import net.minecraft.core.Holder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;

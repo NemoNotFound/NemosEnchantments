@@ -47,9 +47,15 @@ public class BlockMixin {
 
     @ModifyExpressionValue(method = "tryDropExperience", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/enchantment/EnchantmentHelper;processBlockExperience(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/item/ItemStack;I)I"))
     private int modifyExperienceAmount(int original, @Local(argsOnly = true) ServerLevel level, @Local(argsOnly = true) ItemStack item) {
-        var multiplier = EnchantmentUtils.getEnchantmentLevel(level, NemosEnchantments.WISDOM, item) + 1;
+        float multiplier = EnchantmentUtils.getEnchantmentLevel(level, NemosEnchantments.WISDOM, item);
 
-        return original * multiplier;
+        if (multiplier == 1) {
+            multiplier += 0.5F;
+        }
+
+        var result = original * multiplier;
+
+        return (int) result;
     }
 
     @Unique

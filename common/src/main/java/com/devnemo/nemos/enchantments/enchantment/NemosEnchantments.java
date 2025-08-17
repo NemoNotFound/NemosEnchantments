@@ -2,7 +2,6 @@ package com.devnemo.nemos.enchantments.enchantment;
 
 import com.devnemo.nemos.enchantments.Constants;
 import com.devnemo.nemos.enchantments.entity.attribute.NemosAttributes;
-import com.devnemo.nemos.enchantments.tags.EnchantmentItemTags;
 import net.minecraft.advancements.critereon.DamageSourcePredicate;
 import net.minecraft.advancements.critereon.EntityFlagsPredicate;
 import net.minecraft.advancements.critereon.EntityPredicate;
@@ -36,6 +35,7 @@ import net.minecraft.world.level.storage.loot.predicates.DamageSourceCondition;
 import net.minecraft.world.level.storage.loot.predicates.InvertedLootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyCondition;
 
+import java.util.List;
 import java.util.Optional;
 
 import static com.devnemo.nemos.enchantments.Constants.MOD_ID;
@@ -69,7 +69,7 @@ public class  NemosEnchantments {
                                         1,
                                         Enchantment.dynamicCost(25, 25),
                                         Enchantment.dynamicCost(75, 25),
-                                        60,
+                                        40,
                                         EquipmentSlotGroup.ANY
                                 )
                         )
@@ -266,7 +266,7 @@ public class  NemosEnchantments {
                 WISDOM,
                 Enchantment.enchantment(
                                 Enchantment.definition(
-                                        itemLookup.getOrThrow(EnchantmentItemTags.WISDOM_ENCHANTABLE),
+                                        itemLookup.getOrThrow(ItemTags.MINING_ENCHANTABLE),
                                         2,
                                         3,
                                         Enchantment.dynamicCost(10, 10),
@@ -280,7 +280,7 @@ public class  NemosEnchantments {
                                 new EnchantmentAttributeEffect(
                                         ResourceLocation.withDefaultNamespace("enchantment.wisdom"),
                                         NemosAttributes.EXPERIENCE_BONUS.get(),
-                                        LevelBasedValue.perLevel(1.0F, 1.0F),
+                                        LevelBasedValue.lookup(List.of(0.5F, 1F, 2F), LevelBasedValue.perLevel(1.5F, 0.5F)),
                                         AttributeModifier.Operation.ADD_VALUE
                                 )
                         )
