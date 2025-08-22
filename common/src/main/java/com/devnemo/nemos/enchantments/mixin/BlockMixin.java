@@ -52,6 +52,7 @@ public class BlockMixin {
         return original * multiplier;
     }
 
+    //TODO: Put replanting logic in cropBlock
     @Unique
     private static void nemosFarming_replantCrops(ServerLevel serverLevel, BlockPos pos, BlockState state, Block block, List<ItemStack> original) {
         serverLevel.setBlock(pos, state.setValue(((CropBlock) block).getAgeProperty(), 1), Block.UPDATE_ALL, 512);

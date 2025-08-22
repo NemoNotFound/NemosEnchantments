@@ -1,8 +1,4 @@
-# Changelog v1.7
+# Changelog v1.7.2
 
-## Additions
-- Wisdom
-  - Earn more experience when killing mobs with a weapon, bow, or crossbow, as well as when breaking blocks.
-
-## Changes
-- Updated enchantment weights.
+## Fixes
+- Reaper destroys blocks without item drop
