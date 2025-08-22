@@ -1,9 +1,4 @@
-# Changelog v1.7.1
+# Changelog v1.7.2
 
-## Changes
-- Removed enchanted books from trades:
-  - **Wisdom**
-  - **Soul Binding**
-- Reduced **Soul Binding** anvil cost to 20 levels
-- Decreased **Wisdom** experience multiplier
-- **Collector** enchantment now applies to mining tools only
+## Fixes
+- Reaper destroys blocks without item drop
