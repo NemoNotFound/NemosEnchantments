@@ -52,6 +52,7 @@ public class  NemosEnchantments {
     public static final ResourceKey<Enchantment> SNOW_WALKER = createResourceKey("snow_walker");
     public static final ResourceKey<Enchantment> COLLECTOR = createResourceKey("collector");
     public static final ResourceKey<Enchantment> WISDOM = createResourceKey("wisdom");
+    public static final ResourceKey<Enchantment> LUMBERJACK = createResourceKey("lumberjack");
 
     public static void bootstrap(BootstrapContext<Enchantment> context) {
         Constants.LOG.info("Registering enchantments");
@@ -256,7 +257,7 @@ public class  NemosEnchantments {
                                 Enchantment.dynamicCost(10, 10),
                                 Enchantment.dynamicCost(25, 10),
                                 8,
-                                EquipmentSlotGroup.ANY
+                                EquipmentSlotGroup.MAINHAND
                         )
                 )
         );
@@ -282,6 +283,22 @@ public class  NemosEnchantments {
                                         NemosAttributes.EXPERIENCE_BONUS.get(),
                                         LevelBasedValue.lookup(List.of(0.5F, 1F, 2F), LevelBasedValue.perLevel(1.5F, 0.5F)),
                                         AttributeModifier.Operation.ADD_VALUE
+                                )
+                        )
+        );
+
+        register(
+                context,
+                LUMBERJACK,
+                Enchantment.enchantment(
+                                Enchantment.definition(
+                                        itemLookup.getOrThrow(ItemTags.AXES),
+                                        1,
+                                        1,
+                                        Enchantment.dynamicCost(25, 25),
+                                        Enchantment.dynamicCost(75, 25),
+                                        10,
+                                        EquipmentSlotGroup.MAINHAND
                                 )
                         )
         );
