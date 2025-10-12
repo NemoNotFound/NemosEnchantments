@@ -1,6 +1,9 @@
+import net.darkhax.curseforgegradle.TaskPublishCurseForge
+
 plugins {
     id 'multiloader-loader'
     id 'fabric-loom'
+    id("com.modrinth.minotaur")
 }
 dependencies {
     minecraft "com.mojang:minecraft:${minecraft_version}"
@@ -18,7 +21,7 @@ fabricApi {
 }
 
 base {
-    archivesName = "${mod_id_jar}-Fabric"
+    archivesName = "${mod_id_jar}-fabric"
 }
 
 loom {
@@ -64,3 +67,28 @@ sourceSets {
         }
     }
 }
+
+tasks.register('publishCurseForge', TaskPublishCurseForge) {
+    dependsOn(tasks.remapJar)
+    apiToken = System.getenv("CURSEFORGE_TOKEN")
+
+    def projectId = findProperty('curseforge_project_id')
+
+    def mainFile = upload(projectId, tasks.remapJar.archiveFile)
+    mainFile.changelog = file('../changelog.md')
+    mainFile.displayName = findProperty('mod_name') + ' Fabric ' + findProperty('version')
+    mainFile.releaseType = 'release'
+}
+
+modrinth {
+    token.set(System.getenv("MODRINTH_TOKEN"))
+    projectId.set(findProperty('modrinth_project_id'))
+    changelog.set(file('../changelog.md').text)
+    versionName.set(findProperty('mod_name') + ' Fabric ' + findProperty('version'))
+    versionType.set("release")
+    uploadFile.set(tasks.remapJar)
+    dependencies {
+        required.project("fabric-api")
+    }
+}
+tasks.modrinth.dependsOn(tasks.remapJar)
