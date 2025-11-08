@@ -2,6 +2,7 @@ package com.devnemo.nemos.enchantments.enchantment;
 
 import com.devnemo.nemos.enchantments.Constants;
 import com.devnemo.nemos.enchantments.entity.attribute.NemosAttributes;
+import com.devnemo.nemos.enchantments.tags.EnchantmentItemTags;
 import net.minecraft.advancements.critereon.DamageSourcePredicate;
 import net.minecraft.advancements.critereon.EntityFlagsPredicate;
 import net.minecraft.advancements.critereon.EntityPredicate;
@@ -21,9 +22,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentEffectComponents;
 import net.minecraft.world.item.enchantment.LevelBasedValue;
-import net.minecraft.world.item.enchantment.effects.DamageImmunity;
-import net.minecraft.world.item.enchantment.effects.EnchantmentAttributeEffect;
-import net.minecraft.world.item.enchantment.effects.ReplaceDisk;
+import net.minecraft.world.item.enchantment.effects.*;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
@@ -250,7 +249,7 @@ public class  NemosEnchantments {
                 COLLECTOR,
                 Enchantment.enchantment(
                         Enchantment.definition(
-                                itemLookup.getOrThrow(ItemTags.DURABILITY_ENCHANTABLE),
+                                itemLookup.getOrThrow(ItemTags.MINING_ENCHANTABLE),
                                 3,
                                 1,
                                 Enchantment.dynamicCost(10, 10),
@@ -266,7 +265,7 @@ public class  NemosEnchantments {
                 WISDOM,
                 Enchantment.enchantment(
                                 Enchantment.definition(
-                                        itemLookup.getOrThrow(ItemTags.MINING_ENCHANTABLE),
+                                        itemLookup.getOrThrow(EnchantmentItemTags.WISDOM_ENCHANTABLE),
                                         2,
                                         3,
                                         Enchantment.dynamicCost(10, 10),
@@ -275,15 +274,8 @@ public class  NemosEnchantments {
                                         EquipmentSlotGroup.MAINHAND
                                 )
                         )
-                        .withEffect(
-                                EnchantmentEffectComponents.ATTRIBUTES,
-                                new EnchantmentAttributeEffect(
-                                        ResourceLocation.withDefaultNamespace("enchantment.wisdom"),
-                                        NemosAttributes.EXPERIENCE_BONUS.get(),
-                                        LevelBasedValue.lookup(List.of(0.5F, 1F, 2F), LevelBasedValue.perLevel(1.5F, 0.5F)),
-                                        AttributeModifier.Operation.ADD_VALUE
-                                )
-                        )
+                        .withEffect(EnchantmentEffectComponents.BLOCK_EXPERIENCE, new MultiplyValue(LevelBasedValue.lookup(List.of(1.5F, 2F, 2.5F), LevelBasedValue.perLevel(1.5F, 0.5F))))
+                        .withEffect(EnchantmentEffectComponents.MOB_EXPERIENCE, new MultiplyValue(LevelBasedValue.lookup(List.of(1.5F, 2F, 2.5F), LevelBasedValue.perLevel(1.5F, 0.5F))))
         );
     }
 

@@ -63,6 +63,8 @@ tasks.register('publishCurseForge', TaskPublishCurseForge) {
     mainFile.displayName = findProperty('mod_name') + ' NeoForge ' + findProperty('version')
     mainFile.releaseType = 'release'
     mainFile.addModLoader("NeoForge")
+    mainFile.addEnvironment("Client", "Server")
+    mainFile.addJavaVersion("Java 21")
 }
 
 modrinth {

@@ -1,0 +1,8 @@
+{
+  "values": [
+    "#minecraft:enchantable/mining",
+    "#minecraft:enchantable/bow",
+    "#minecraft:enchantable/crossbow",
+    "#minecraft:enchantable/weapon"
+  ]
+}

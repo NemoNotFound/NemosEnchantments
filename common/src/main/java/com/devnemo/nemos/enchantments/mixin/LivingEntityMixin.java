@@ -1,7 +1,6 @@
 package com.devnemo.nemos.enchantments.mixin;
 
 import com.devnemo.nemos.enchantments.entity.attribute.NemosAttributes;
-import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.core.Holder;
@@ -28,8 +27,7 @@ public abstract class LivingEntityMixin extends Entity {
 
     @ModifyReturnValue(method = "createLivingAttributes", at = @At("RETURN"))
     private static AttributeSupplier.Builder createLivingAttributes(AttributeSupplier.Builder original) {
-        return original.add(NemosAttributes.CLIMBING_EFFICIENCY.get())
-                .add(NemosAttributes.EXPERIENCE_BONUS.get(), 1.0);
+        return original.add(NemosAttributes.CLIMBING_EFFICIENCY.get());
     }
 
     @ModifyVariable(method = "handleRelativeFrictionAndCalculateMovement", at = @At(value = "STORE", ordinal = 1), ordinal = 1)
@@ -44,16 +42,5 @@ public abstract class LivingEntityMixin extends Entity {
         var climbingEfficiency = getAttributeValue(NemosAttributes.CLIMBING_EFFICIENCY.get());
 
         return Math.max(vec3.y, -climbingEfficiency + 0.05F);
-    }
-
-    @ModifyExpressionValue(method = "dropExperience", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/LivingEntity;getExperienceReward(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/entity/Entity;)I"))
-    private int modifyExperienceAmount(int original, @Local(argsOnly = true) Entity entity) {
-        if (!(entity instanceof LivingEntity livingEntity)) {
-            return original;
-        }
-
-        var experience = livingEntity.getAttributeValue(NemosAttributes.EXPERIENCE_BONUS.get());
-
-        return original * (int) experience;
     }
 }

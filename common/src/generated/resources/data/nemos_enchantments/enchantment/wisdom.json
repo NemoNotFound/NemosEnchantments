@@ -4,24 +4,44 @@
     "translate": "enchantment.nemos_enchantments.wisdom"
   },
   "effects": {
-    "minecraft:attributes": [
+    "minecraft:block_experience": [
       {
-        "amount": {
-          "type": "minecraft:lookup",
-          "fallback": {
-            "type": "minecraft:linear",
-            "base": 1.5,
-            "per_level_above_first": 0.5
-          },
-          "values": [
-            0.5,
-            1.0,
-            2.0
-          ]
-        },
-        "attribute": "nemos_enchantments:experience_bonus",
-        "id": "minecraft:enchantment.wisdom",
-        "operation": "add_value"
+        "effect": {
+          "type": "minecraft:multiply",
+          "factor": {
+            "type": "minecraft:lookup",
+            "fallback": {
+              "type": "minecraft:linear",
+              "base": 1.5,
+              "per_level_above_first": 0.5
+            },
+            "values": [
+              1.5,
+              2.0,
+              2.5
+            ]
+          }
+        }
+      }
+    ],
+    "minecraft:mob_experience": [
+      {
+        "effect": {
+          "type": "minecraft:multiply",
+          "factor": {
+            "type": "minecraft:lookup",
+            "fallback": {
+              "type": "minecraft:linear",
+              "base": 1.5,
+              "per_level_above_first": 0.5
+            },
+            "values": [
+              1.5,
+              2.0,
+              2.5
+            ]
+          }
+        }
       }
     ]
   },
@@ -37,6 +57,6 @@
   "slots": [
     "mainhand"
   ],
-  "supported_items": "#minecraft:enchantable/mining",
+  "supported_items": "#nemos_enchantments:enchantable/wisdom",
   "weight": 2
 }

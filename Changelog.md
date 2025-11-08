@@ -1,4 +1,7 @@
-# Changelog v1.7.2
+# Changelog v1.7.3
+
+## Changes
+- Wisdom now works with bows and crossbows as well
 
 ## Fixes
-- Reaper destroys blocks without item drop
+- Wisdom not working on sword properly
