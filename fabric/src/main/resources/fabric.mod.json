@@ -16,10 +16,10 @@
     "environment": "*",
     "entrypoints": {
         "main": [
-            "com.devnemo.nemos.enchantments.FabricNemosEnchantments"
+            "com.nemonotfound.nemos.enchantments.FabricNemosEnchantments"
         ],
         "fabric-datagen": [
-          "com.devnemo.nemos.enchantments.DataGenerator"
+          "com.nemonotfound.nemos.enchantments.DataGenerator"
         ]
     },
     "mixins": [
