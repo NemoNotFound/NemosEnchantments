@@ -1,9 +1,10 @@
 package com.nemonotfound.nemos.enchantments.datagen.langdatagen;
 
 import com.nemonotfound.nemos.enchantments.enchantment.NemosEnchantments;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
+import org.jspecify.annotations.NonNull;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -11,12 +12,12 @@ import static com.nemonotfound.nemos.enchantments.datagen.langdatagen.EnglishLan
 
 public class GermanLanguageGenerator extends FabricLanguageProvider {
 
-    public GermanLanguageGenerator(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> completableFuture) {
-        super(dataOutput, "de_de", completableFuture);
+    public GermanLanguageGenerator(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> completableFuture) {
+        super(output, "de_de", completableFuture);
     }
 
     @Override
-    public void generateTranslations(HolderLookup.Provider registryLookup, TranslationBuilder translationBuilder) {
+    public void generateTranslations(HolderLookup.@NonNull Provider registryLookup, TranslationBuilder translationBuilder) {
         translationBuilder.add(getEnchantmentTranslationKey(NemosEnchantments.SOUL_BINDING), "Seelenbindung");
         translationBuilder.add(getEnchantmentTranslationKey(NemosEnchantments.CLIMBER), "Kletterer");
         translationBuilder.add(getEnchantmentTranslationKey(NemosEnchantments.SPRINTER), "Sprinter");

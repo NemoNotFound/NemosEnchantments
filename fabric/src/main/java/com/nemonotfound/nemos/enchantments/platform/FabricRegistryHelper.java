@@ -1,14 +1,13 @@
 package com.nemonotfound.nemos.enchantments.platform;
 
 import com.nemonotfound.nemos.enchantments.platform.services.IRegistryHelper;
-import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -56,12 +55,12 @@ public class FabricRegistryHelper implements IRegistryHelper {
 
     @Override
     public CreativeModeTab.Builder createCreativeModeTab() {
-        return FabricItemGroup.builder();
+        return CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0);
     }
 
     @Override
     public Supplier<KeyMapping> registerKeyMapping(KeyMapping keyMapping) {
-        var registeredKeyMapping = KeyBindingHelper.registerKeyBinding(keyMapping);
+        var registeredKeyMapping = KeyMappingHelper.registerKeyMapping(keyMapping);
 
         return () -> registeredKeyMapping;
     }

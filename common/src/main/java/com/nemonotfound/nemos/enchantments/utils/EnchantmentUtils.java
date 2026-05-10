@@ -3,7 +3,7 @@ package com.nemonotfound.nemos.enchantments.utils;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemInstance;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
@@ -14,12 +14,12 @@ public class EnchantmentUtils {
 
     }
 
-    public static boolean hasEnchantment(Level level, ResourceKey<Enchantment> enchantment, ItemStack itemStack) {
-        return EnchantmentHelper.getItemEnchantmentLevel(getEnchantmentRegistryEntry(level, enchantment), itemStack) > 0;
+    public static boolean hasEnchantment(Level level, ResourceKey<Enchantment> enchantment, ItemInstance item) {
+        return EnchantmentHelper.getItemEnchantmentLevel(getEnchantmentRegistryEntry(level, enchantment), item) > 0;
     }
 
-    public static int getEnchantmentLevel(Level level, ResourceKey<Enchantment> enchantment, ItemStack itemStack) {
-        return EnchantmentHelper.getItemEnchantmentLevel(getEnchantmentRegistryEntry(level, enchantment), itemStack);
+    public static int getEnchantmentLevel(Level level, ResourceKey<Enchantment> enchantment, ItemInstance item) {
+        return EnchantmentHelper.getItemEnchantmentLevel(getEnchantmentRegistryEntry(level, enchantment), item);
     }
 
     private static Holder<Enchantment> getEnchantmentRegistryEntry(Level level, ResourceKey<Enchantment> enchantmentRegistryKey) {

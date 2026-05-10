@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 public class AnvilScreenMixin {
 
 	@Expression("? >= 40")
-	@ModifyExpressionValue(method = "renderLabels", at = @At("MIXINEXTRAS:EXPRESSION"))
+	@ModifyExpressionValue(method = "extractLabels", at = @At("MIXINEXTRAS:EXPRESSION"))
 	private boolean removeTooExpensive(boolean original) {
 		return false;
 	}

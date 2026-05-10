@@ -12,16 +12,16 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.FarmBlock;
+import net.minecraft.world.level.block.FarmlandBlock;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
-@Mixin(FarmBlock.class)
+@Mixin(FarmlandBlock.class)
 public class FabricFarmBlockMixin {
 
-    @Definition(id = "random", field = "Lnet/minecraft/world/level/Level;random:Lnet/minecraft/util/RandomSource;")
+    @Definition(id = "getRandom", method = "Lnet/minecraft/world/level/Level;getRandom()Lnet/minecraft/util/RandomSource;")
     @Definition(id = "nextFloat", method = "Lnet/minecraft/util/RandomSource;nextFloat()F")
-    @Expression("((double) ?.random.nextFloat()) < ? - 0.5")
+    @Expression("((double) ?.getRandom().nextFloat()) < ? - ?")
     @ModifyExpressionValue(method = "fallOn", at = @At("MIXINEXTRAS:EXPRESSION"))
     private boolean fallOn(boolean original, @Local(argsOnly = true) Entity entity, @Local(argsOnly = true) Level level) {
         if (original && entity instanceof Player player) {

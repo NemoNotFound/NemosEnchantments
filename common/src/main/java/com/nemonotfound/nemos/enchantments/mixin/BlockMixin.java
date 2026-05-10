@@ -6,6 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.item.ItemInstance;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
@@ -23,7 +24,7 @@ import static com.nemonotfound.nemos.enchantments.utils.EnchantmentUtils.hasEnch
 //TODO: Replace with enchantment effect
 public class BlockMixin {
 
-    @ModifyReturnValue(method = "getDrops(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/entity/BlockEntity;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/item/ItemStack;)Ljava/util/List;", at = @At("RETURN"))
+    @ModifyReturnValue(method = "getDrops(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/entity/BlockEntity;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/item/ItemInstance;)Ljava/util/List;", at = @At("RETURN"))
     private static List<ItemStack> getDrops(
             List<ItemStack> original,
             BlockState blockState,
@@ -31,11 +32,11 @@ public class BlockMixin {
             BlockPos blockPos,
             BlockEntity blockEntity,
             Entity entity,
-            ItemStack itemStack
+            ItemInstance tool
     ) {
         Block block = blockState.getBlock();
 
-        if (block instanceof CropBlock && itemStack.is(ItemTags.HOES) && hasEnchantment(serverLevel, NemosEnchantments.REPLANTING, itemStack)) {
+        if (block instanceof CropBlock && tool.is(ItemTags.HOES) && hasEnchantment(serverLevel, NemosEnchantments.REPLANTING, tool)) {
             nemosFarming_replantCrops(serverLevel, blockPos, blockState, block, original);
         }
 

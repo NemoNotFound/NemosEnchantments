@@ -1,24 +1,25 @@
 package com.nemonotfound.nemos.enchantments.datagen;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.EnchantmentTags;
 import net.minecraft.world.item.enchantment.Enchantment;
+import org.jspecify.annotations.NonNull;
 
 import java.util.concurrent.CompletableFuture;
 
 import static com.nemonotfound.nemos.enchantments.enchantment.NemosEnchantments.*;
 
-public class EnchantmentTagProvider extends FabricTagProvider<Enchantment> {
+public class EnchantmentTagProvider extends FabricTagsProvider<Enchantment> {
 
-    public EnchantmentTagProvider(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+    public EnchantmentTagProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, Registries.ENCHANTMENT, registriesFuture);
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider provider) {
+    protected void addTags(HolderLookup.@NonNull Provider provider) {
         builder(EnchantmentTags.IN_ENCHANTING_TABLE)
                 .add(CLIMBER)
                 .add(SPRINTER)

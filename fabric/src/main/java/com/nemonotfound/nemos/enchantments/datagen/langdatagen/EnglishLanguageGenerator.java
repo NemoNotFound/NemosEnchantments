@@ -1,7 +1,7 @@
 package com.nemonotfound.nemos.enchantments.datagen.langdatagen;
 
 import com.nemonotfound.nemos.enchantments.enchantment.NemosEnchantments;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.resources.ResourceKey;
@@ -12,8 +12,8 @@ import java.util.concurrent.CompletableFuture;
 
 public class EnglishLanguageGenerator extends FabricLanguageProvider {
 
-    public EnglishLanguageGenerator(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> completableFuture) {
-        super(dataOutput, completableFuture);
+    public EnglishLanguageGenerator(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> completableFuture) {
+        super(output, completableFuture);
     }
 
     @Override

@@ -21,7 +21,7 @@ public abstract class AbstractHorseMixin extends Entity {
     }
 
     @ModifyExpressionValue(method = "dropEquipment", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/enchantment/EnchantmentHelper;has(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/core/component/DataComponentType;)Z"))
-    private boolean shouldNotDrop(boolean original, @Local ItemStack itemStack) {
+    private boolean shouldNotDrop(boolean original, @Local(name = "itemStack") ItemStack itemStack) {
         return original && !hasEnchantment(this.level(), NemosEnchantments.SOUL_BINDING, itemStack);
     }
 }
