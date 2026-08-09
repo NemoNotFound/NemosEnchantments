@@ -2,7 +2,8 @@
 
 ## Description
 
-Nemo's Enchantments adds new enchantments, such as 'Soul Binding', 'Sprinter', and 'Climber', to Minecraft and removes the 'Too Expensive' limitation from the anvil!   
+Nemo's Enchantments adds new enchantments, such as 'Soul Binding', 'Sprinter', 'Climber', and 'Felling', to Minecraft and removes the 'Too Expensive' limitation from the anvil!
+
 To see all enchantments, check the [wiki](https://wiki.nemonotfound.com/projects/minecraft-mods/nemos-enchantments/enchantments).
 
 ## Downloads

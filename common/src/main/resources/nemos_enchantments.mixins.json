@@ -7,13 +7,15 @@
   "mixins": [
     "AbstractHorseMixin",
     "AllayMixin",
+    "AxeItemAccessor",
     "BlockMixin",
     "HoeItemMixin",
     "LivingEntityMixin",
     "MobEntityMixin",
     "PlayerEntityMixin",
     "PowderSnowBlockMixin",
-    "ServerPlayerEntityMixin"
+    "ServerPlayerEntityMixin",
+    "ServerPlayerGameModeMixin"
   ],
   "client": [
     "AnvilScreenMixin"
@@ -26,4 +28,3 @@
     "minVersion": "0.5.0-rc.2"
   }
 }
-

@@ -3,6 +3,24 @@ plugins {
     id 'net.fabricmc.fabric-loom' version '1.15-SNAPSHOT' apply false
     // see https://projects.neoforged.net/neoforged/moddevgradle for new versions
     id 'net.neoforged.moddev' version '2.0.141' apply false
-    id 'net.darkhax.curseforgegradle' version '1.1.28'
-    id "com.modrinth.minotaur" version "2.+"
+    id 'net.darkhax.curseforgegradle' version '1.1.28' apply false
+    id "com.modrinth.minotaur" version "2.+" apply false
+}
+
+tasks.register('publishModrinth') {
+    group = 'publishing'
+    description = 'Uploads the Fabric and NeoForge releases to Modrinth.'
+    dependsOn(':fabric:modrinth', ':neoforge:modrinth')
+}
+
+tasks.register('publishCurseForge') {
+    group = 'publishing'
+    description = 'Uploads the Fabric and NeoForge releases to CurseForge.'
+    dependsOn(':fabric:publishCurseForge', ':neoforge:publishCurseForge')
+}
+
+tasks.register('publishMods') {
+    group = 'publishing'
+    description = 'Uploads the Fabric and NeoForge releases to Modrinth and CurseForge.'
+    dependsOn('publishModrinth', 'publishCurseForge')
 }

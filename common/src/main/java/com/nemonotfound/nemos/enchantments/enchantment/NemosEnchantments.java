@@ -51,6 +51,7 @@ public class  NemosEnchantments {
     public static final ResourceKey<Enchantment> SNOW_WALKER = createResourceKey("snow_walker");
     public static final ResourceKey<Enchantment> COLLECTOR = createResourceKey("collector");
     public static final ResourceKey<Enchantment> WISDOM = createResourceKey("wisdom");
+    public static final ResourceKey<Enchantment> FELLING = createResourceKey("felling");
 
     public static void bootstrap(BootstrapContext<Enchantment> context) {
         Constants.LOG.info("Registering enchantments");
@@ -276,6 +277,22 @@ public class  NemosEnchantments {
                         )
                         .withEffect(EnchantmentEffectComponents.BLOCK_EXPERIENCE, new MultiplyValue(LevelBasedValue.lookup(List.of(1.5F, 2F, 2.5F), LevelBasedValue.perLevel(1.5F, 0.5F))))
                         .withEffect(EnchantmentEffectComponents.MOB_EXPERIENCE, new MultiplyValue(LevelBasedValue.lookup(List.of(1.5F, 2F, 2.5F), LevelBasedValue.perLevel(1.5F, 0.5F))))
+        );
+
+        register(
+                context,
+                FELLING,
+                Enchantment.enchantment(
+                        Enchantment.definition(
+                                itemLookup.getOrThrow(ItemTags.AXES),
+                                2,
+                                1,
+                                Enchantment.constantCost(20),
+                                Enchantment.constantCost(50),
+                                10,
+                                EquipmentSlotGroup.MAINHAND
+                        )
+                )
         );
     }
 

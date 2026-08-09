@@ -28,6 +28,7 @@ public class GermanLanguageGenerator extends FabricLanguageProvider {
         translationBuilder.add(getEnchantmentTranslationKey(NemosEnchantments.SNOW_WALKER), "Schneeläufer");
         translationBuilder.add(getEnchantmentTranslationKey(NemosEnchantments.COLLECTOR), "Sammler");
         translationBuilder.add(getEnchantmentTranslationKey(NemosEnchantments.WISDOM), "Weisheit");
+        translationBuilder.add(getEnchantmentTranslationKey(NemosEnchantments.FELLING), "Baumfäller");
         translationBuilder.add("attribute.name.climbing_efficiency", "Klettereffizienz");
         translationBuilder.add("attribute.name.experience_bonus", "Erfahrungsbonus");
     }
