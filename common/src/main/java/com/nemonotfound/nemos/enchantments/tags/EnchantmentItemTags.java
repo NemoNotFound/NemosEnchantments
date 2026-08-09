@@ -10,6 +10,7 @@ import static com.nemonotfound.nemos.enchantments.Constants.MOD_ID;
 public class EnchantmentItemTags {
 
     public static final TagKey<Item> WISDOM_ENCHANTABLE = bind("enchantable/wisdom");
+    public static final TagKey<Item> HEAD_HUNTER_ENCHANTABLE = bind("enchantable/head_hunter");
 
     private static TagKey<Item> bind(String name) {
         return TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MOD_ID, name));

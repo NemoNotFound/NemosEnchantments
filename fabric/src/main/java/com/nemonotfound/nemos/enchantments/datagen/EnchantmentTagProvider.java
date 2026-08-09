@@ -35,7 +35,8 @@ public class EnchantmentTagProvider extends FabricTagsProvider<Enchantment> {
                 .add(MAGMA_WALKER)
                 .add(SNOW_WALKER)
                 .add(COLLECTOR)
-                .add(WISDOM);
+                .add(WISDOM)
+                .add(HEAD_HUNTER);
 
         builder(EnchantmentTags.NON_TREASURE)
                 .add(CLIMBER)
@@ -50,7 +51,8 @@ public class EnchantmentTagProvider extends FabricTagsProvider<Enchantment> {
         builder(EnchantmentTags.TREASURE)
                 .add(SOUL_BINDING)
                 .add(MAGMA_WALKER)
-                .add(WISDOM);
+                .add(WISDOM)
+                .add(HEAD_HUNTER);
 
         builder(EnchantmentTags.TRADEABLE)
                 .add(CLIMBER)

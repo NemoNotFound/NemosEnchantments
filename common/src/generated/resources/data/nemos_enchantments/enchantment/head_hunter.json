@@ -1,0 +1,20 @@
+{
+  "anvil_cost": 12,
+  "description": {
+    "translate": "enchantment.nemos_enchantments.head_hunter"
+  },
+  "max_cost": {
+    "base": 60,
+    "per_level_above_first": 15
+  },
+  "max_level": 3,
+  "min_cost": {
+    "base": 25,
+    "per_level_above_first": 15
+  },
+  "slots": [
+    "mainhand"
+  ],
+  "supported_items": "#nemos_enchantments:enchantable/head_hunter",
+  "weight": 1
+}

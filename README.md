@@ -6,6 +6,21 @@ Nemo's Enchantments adds new enchantments, such as 'Soul Binding', 'Sprinter', '
 
 To see all enchantments, check the [wiki](https://wiki.nemonotfound.com/projects/minecraft-mods/nemos-enchantments/enchantments).
 
+## Enchantments
+
+- Soul Binding
+- Climber
+- Sprinter
+- Farmer's Knowledge
+- Reaper
+- Replanting
+- Magma Walker
+- Snow Walker
+- Collector
+- Wisdom
+- Felling
+- Head-Hunter
+
 ## Downloads
 
 - [CurseForge](https://curseforge.com/minecraft/mc-mods/nemos-enchantments)

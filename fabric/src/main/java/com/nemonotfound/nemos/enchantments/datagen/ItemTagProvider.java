@@ -22,5 +22,12 @@ public class ItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
                 .forceAddTag(ItemTags.BOW_ENCHANTABLE)
                 .forceAddTag(ItemTags.CROSSBOW_ENCHANTABLE)
                 .forceAddTag(ItemTags.WEAPON_ENCHANTABLE);
+
+        this.tag(EnchantmentItemTags.HEAD_HUNTER_ENCHANTABLE)
+                .forceAddTag(ItemTags.MELEE_WEAPON_ENCHANTABLE)
+                .forceAddTag(ItemTags.BOW_ENCHANTABLE)
+                .forceAddTag(ItemTags.CROSSBOW_ENCHANTABLE)
+                .forceAddTag(ItemTags.TRIDENT_ENCHANTABLE)
+                .forceAddTag(ItemTags.MACE_ENCHANTABLE);
     }
 }

@@ -52,6 +52,7 @@ public class  NemosEnchantments {
     public static final ResourceKey<Enchantment> COLLECTOR = createResourceKey("collector");
     public static final ResourceKey<Enchantment> WISDOM = createResourceKey("wisdom");
     public static final ResourceKey<Enchantment> FELLING = createResourceKey("felling");
+    public static final ResourceKey<Enchantment> HEAD_HUNTER = createResourceKey("head_hunter");
 
     public static void bootstrap(BootstrapContext<Enchantment> context) {
         Constants.LOG.info("Registering enchantments");
@@ -290,6 +291,22 @@ public class  NemosEnchantments {
                                 Enchantment.constantCost(20),
                                 Enchantment.constantCost(50),
                                 10,
+                                EquipmentSlotGroup.MAINHAND
+                        )
+                )
+        );
+
+        register(
+                context,
+                HEAD_HUNTER,
+                Enchantment.enchantment(
+                        Enchantment.definition(
+                                itemLookup.getOrThrow(EnchantmentItemTags.HEAD_HUNTER_ENCHANTABLE),
+                                1,
+                                3,
+                                Enchantment.dynamicCost(25, 15),
+                                Enchantment.dynamicCost(60, 15),
+                                12,
                                 EquipmentSlotGroup.MAINHAND
                         )
                 )
