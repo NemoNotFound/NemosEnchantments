@@ -24,7 +24,7 @@ import java.util.List;
 public class NeoForgeBlockMixin {
 
     @ModifyExpressionValue(method = "dropResources(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/entity/BlockEntity;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/item/ItemStack;)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/Block;getDrops(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/entity/BlockEntity;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/item/ItemInstance;)Ljava/util/List;"))
-    private static List<ItemStack> handleDrops(List<ItemStack> originalDrops, @Local(argsOnly = true) Level level, @Local(argsOnly = true) ItemStack tool, @Local(argsOnly = true) Entity entity) {
+    private static List<ItemStack> handleDrops(List<ItemStack> originalDrops, @Local(argsOnly = true, name = "level") Level level, @Local(argsOnly = true, name = "tool") ItemStack tool, @Local(argsOnly = true, name = "breaker") Entity entity) {
         if (!(level instanceof ServerLevel serverLevel) || !(entity instanceof Player player)) {
             return originalDrops;
         }
@@ -44,7 +44,6 @@ public class NeoForgeBlockMixin {
 
         for (ItemStack drop : originalDrops) {
             var originalCount = drop.getCount();
-
             player.getInventory().add(drop);
 
             if (drop.getCount() > 0) {
@@ -53,10 +52,8 @@ public class NeoForgeBlockMixin {
 
             if (originalCount != drop.getCount()) {
                 var pitch = ((serverLevel.getRandom().nextFloat() - serverLevel.getRandom().nextFloat()) * 0.7F + 1.0F) * 2.0F;
-                var volume = 0.2F;
-
                 serverLevel.playSound(null, player.getX(), player.getY() + 0.5, player.getZ(),
-                        SoundEvents.ITEM_PICKUP, SoundSource.PLAYERS, volume, pitch);
+                        SoundEvents.ITEM_PICKUP, SoundSource.PLAYERS, 0.2F, pitch);
             }
         }
 

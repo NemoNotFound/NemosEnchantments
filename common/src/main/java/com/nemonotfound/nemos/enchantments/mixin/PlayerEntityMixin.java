@@ -24,7 +24,7 @@ import static com.nemonotfound.nemos.enchantments.utils.EnchantmentUtils.hasEnch
 public abstract class PlayerEntityMixin extends Entity {
 
     @Shadow @Final
-    Inventory inventory;
+    private Inventory inventory;
     @Unique
     private final Map<Integer, ItemStack> nemosEnchantments$itemStackMap = new HashMap<>();
 

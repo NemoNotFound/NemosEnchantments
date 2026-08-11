@@ -40,7 +40,7 @@ public abstract class ServerPlayerGameModeMixin {
     private List<BlockPos> nemosEnchantments$logsToFell = List.of();
 
     @Inject(method = "destroyBlock", at = @At("HEAD"))
-    private void nemosEnchantments$findTree(BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
+    private void destroyBlockHead(BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
         if (nemosEnchantments$felling) {
             return;
         }
@@ -57,7 +57,7 @@ public abstract class ServerPlayerGameModeMixin {
     }
 
     @Inject(method = "destroyBlock", at = @At("RETURN"))
-    private void nemosEnchantments$fellTree(BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
+    private void destroyBlockReturn(BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
         if (nemosEnchantments$felling || !cir.getReturnValue() || nemosEnchantments$logsToFell.isEmpty()) {
             return;
         }

@@ -5,6 +5,7 @@ import com.llamalad7.mixinextras.expression.Expression;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.nemonotfound.nemos.enchantments.utils.EnchantmentUtils;
+import com.nemonotfound.nemos.enchantments.access.LivingEntityAccess;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -23,12 +24,13 @@ public class FabricFarmBlockMixin {
     @Definition(id = "nextFloat", method = "Lnet/minecraft/util/RandomSource;nextFloat()F")
     @Expression("((double) ?.getRandom().nextFloat()) < ? - ?")
     @ModifyExpressionValue(method = "fallOn", at = @At("MIXINEXTRAS:EXPRESSION"))
-    private boolean fallOn(boolean original, @Local(argsOnly = true) Entity entity, @Local(argsOnly = true) Level level) {
+    private boolean fallOn(boolean original, @Local(argsOnly = true, name = "entity") Entity entity, @Local(argsOnly = true, name = "level") Level level) {
         if (original && entity instanceof Player player) {
             ItemStack boots = player.getItemBySlot(EquipmentSlot.FEET);
 
-            if (boots.is(ItemTags.FOOT_ARMOR)) {
-                return !EnchantmentUtils.hasEnchantment(level, Enchantments.FEATHER_FALLING, boots);
+            if (boots.is(ItemTags.FOOT_ARMOR)
+                    && EnchantmentUtils.hasEnchantment(level, Enchantments.FEATHER_FALLING, boots)) {
+                return ((LivingEntityAccess) player).nemosEnchantments$calculateFallDamage(player.fallDistance, 1.0F) > 0;
             }
         }
 

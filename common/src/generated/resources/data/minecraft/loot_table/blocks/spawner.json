@@ -1,0 +1,44 @@
+{
+  "pools": [
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:match_tool",
+              "predicate": {
+                "predicates": {
+                  "minecraft:enchantments": [
+                    {
+                      "enchantments": "nemos_enchantments:soul_touch",
+                      "levels": {
+                        "min": 1
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ],
+          "functions": [
+            {
+              "function": "minecraft:copy_components",
+              "include": [
+                "minecraft:block_entity_data"
+              ],
+              "source": "block_entity"
+            },
+            {
+              "function": "minecraft:set_custom_data",
+              "tag": "{\"nemos_enchantments:soul_touch\":1b}"
+            }
+          ],
+          "name": "minecraft:spawner"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "minecraft:blocks/spawner"
+}

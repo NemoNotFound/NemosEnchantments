@@ -2,19 +2,23 @@ package com.nemonotfound.nemos.enchantments.mixin;
 
 import com.nemonotfound.nemos.enchantments.enchantment.NemosEnchantments;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
+import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemInstance;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.ModifyArg;
 
 import java.util.List;
 
@@ -23,6 +27,21 @@ import static com.nemonotfound.nemos.enchantments.utils.EnchantmentUtils.hasEnch
 @Mixin(Block.class)
 //TODO: Replace with enchantment effect
 public class BlockMixin {
+
+    @ModifyArg(
+            method = "dropResources(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/entity/BlockEntity;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/item/ItemStack;)V",
+            at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/state/BlockState;spawnAfterBreak(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/item/ItemStack;Z)V"),
+            index = 3
+    )
+    private static boolean nemosEnchantments$suppressSpawnerExperienceWithSoulTouch(
+            boolean dropExperience,
+            @Local(argsOnly = true) BlockState state,
+            @Local(argsOnly = true) Level level,
+            @Local(argsOnly = true) ItemStack tool
+    ) {
+        return dropExperience && !(state.is(Blocks.SPAWNER)
+                && hasEnchantment(level, NemosEnchantments.SOUL_TOUCH, tool));
+    }
 
     @ModifyReturnValue(method = "getDrops(Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/entity/BlockEntity;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/item/ItemInstance;)Ljava/util/List;", at = @At("RETURN"))
     private static List<ItemStack> getDrops(

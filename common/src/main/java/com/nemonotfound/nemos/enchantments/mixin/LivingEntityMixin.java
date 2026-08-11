@@ -1,6 +1,7 @@
 package com.nemonotfound.nemos.enchantments.mixin;
 
 import com.nemonotfound.nemos.enchantments.entity.attribute.NemosAttributes;
+import com.nemonotfound.nemos.enchantments.access.LivingEntityAccess;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.nemonotfound.nemos.enchantments.utils.HeadHunterUtils;
@@ -20,15 +21,20 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.gen.Invoker;
 
 @Mixin(LivingEntity.class)
-public abstract class LivingEntityMixin extends Entity {
+public abstract class LivingEntityMixin extends Entity implements LivingEntityAccess {
 
     @Shadow public abstract double getAttributeValue(Holder<Attribute> attribute);
 
     private LivingEntityMixin(EntityType<?> type, Level level) {
         super(type, level);
     }
+
+    @Override
+    @Invoker("calculateFallDamage")
+    public abstract int nemosEnchantments$calculateFallDamage(double fallDistance, float damageMultiplier);
 
     @ModifyReturnValue(method = "createLivingAttributes", at = @At("RETURN"))
     private static AttributeSupplier.Builder createLivingAttributes(AttributeSupplier.Builder original) {

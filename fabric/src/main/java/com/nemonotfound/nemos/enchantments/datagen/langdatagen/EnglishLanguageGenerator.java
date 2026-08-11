@@ -30,6 +30,7 @@ public class EnglishLanguageGenerator extends FabricLanguageProvider {
         translationBuilder.add(getEnchantmentTranslationKey(NemosEnchantments.WISDOM), "Wisdom");
         translationBuilder.add(getEnchantmentTranslationKey(NemosEnchantments.FELLING), "Felling");
         translationBuilder.add(getEnchantmentTranslationKey(NemosEnchantments.HEAD_HUNTER), "Head-Hunter");
+        translationBuilder.add(getEnchantmentTranslationKey(NemosEnchantments.SOUL_TOUCH), "Soul Touch");
         translationBuilder.add("attribute.name.climbing_efficiency", "Climbing Efficiency");
         translationBuilder.add("attribute.name.experience_bonus", "Experience Bonus");
     }
