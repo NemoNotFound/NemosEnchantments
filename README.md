@@ -29,10 +29,6 @@ To see all enchantments, check the [wiki](https://wiki.nemonotfound.com/projects
 - [CurseForge](https://curseforge.com/minecraft/mc-mods/nemos-enchantments)
 - [Modrinth](https://modrinth.com/mod/nemos-enchantments)
 
-## Third-Party Components
-
-- Uses [MultiLoader‑Template (CC0-1.0)](https://github.com/jaredlll08/MultiLoader-Template) for multiple loader support.
-
 ## Join my Discord!
 
 Join my Discord to meet new people and stay up to date with all of my mods!
