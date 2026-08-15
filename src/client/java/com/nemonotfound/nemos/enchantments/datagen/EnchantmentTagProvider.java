@@ -1,0 +1,70 @@
+package com.nemonotfound.nemos.enchantments.datagen;
+
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.tags.EnchantmentTags;
+import net.minecraft.world.item.enchantment.Enchantment;
+import org.jspecify.annotations.NonNull;
+
+import java.util.concurrent.CompletableFuture;
+
+import static com.nemonotfound.nemos.enchantments.enchantment.Enchantments.*;
+
+public class EnchantmentTagProvider extends FabricTagsProvider<Enchantment> {
+
+    public EnchantmentTagProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+        super(output, Registries.ENCHANTMENT, registriesFuture);
+    }
+
+    @Override
+    protected void addTags(HolderLookup.@NonNull Provider provider) {
+        builder(EnchantmentTags.IN_ENCHANTING_TABLE)
+                .add(CLIMBER)
+                .add(SPRINTER)
+                .add(FARMERS_KNOWLEDGE)
+                .add(REAPER)
+                .add(REPLANTING)
+                .add(SNOW_WALKER)
+                .add(COLLECTOR)
+                .add(FELLING);
+
+        builder(EnchantmentTags.ON_RANDOM_LOOT)
+                .add(SOUL_BINDING)
+                .add(MAGMA_WALKER)
+                .add(SNOW_WALKER)
+                .add(COLLECTOR)
+                .add(WISDOM)
+                .add(HEAD_HUNTER)
+                .add(SOUL_TOUCH);
+
+        builder(EnchantmentTags.NON_TREASURE)
+                .add(CLIMBER)
+                .add(SPRINTER)
+                .add(FARMERS_KNOWLEDGE)
+                .add(REAPER)
+                .add(REPLANTING)
+                .add(SNOW_WALKER)
+                .add(COLLECTOR)
+                .add(FELLING);
+
+        builder(EnchantmentTags.TREASURE)
+                .add(SOUL_BINDING)
+                .add(MAGMA_WALKER)
+                .add(WISDOM)
+                .add(HEAD_HUNTER)
+                .add(SOUL_TOUCH);
+
+        builder(EnchantmentTags.TRADEABLE)
+                .add(CLIMBER)
+                .add(SPRINTER)
+                .add(FARMERS_KNOWLEDGE)
+                .add(REAPER)
+                .add(REPLANTING)
+                .add(MAGMA_WALKER)
+                .add(SNOW_WALKER)
+                .add(COLLECTOR)
+                .add(FELLING);
+    }
+}

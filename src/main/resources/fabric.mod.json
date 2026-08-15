@@ -1,0 +1,42 @@
+{
+	"schemaVersion": 1,
+	"id": "nemos_enchantments",
+	"version": "${version}",
+	"name": "Nemo's Enchantments",
+	"description": "Add more enchantments to Minecraft!",
+	"authors": [
+		"Nemo"
+	],
+	"contact": {
+		"homepage": "https://nemonotfound.com",
+		"sources": "https://github.com/NemoNotFound/"
+	},
+	"license": "All Rights Reserved",
+	"icon": "assets/nemos_enchantments/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.nemonotfound.nemos.enchantments.NemosEnchantments"
+		],
+		"client": [
+			"com.nemonotfound.nemos.enchantments.client.NemosEnchantmentsClient"
+		],
+		"fabric-datagen": [
+			"com.nemonotfound.nemos.enchantments.DataGenerator"
+		]
+	},
+	"mixins": [
+		"nemos_enchantments.mixins.json",
+		{
+			"config": "nemos_enchantments.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=${loader_version}",
+		"minecraft": ">=${minecraft_version}",
+		"java": ">=${java_version}",
+		"fabric-api": "*"
+	},
+	"accessWidener": "nemos_enchantments.accesswidener"
+}

@@ -1,0 +1,17 @@
+{
+	"required": true,
+	"package": "com.nemonotfound.nemos.enchantments.mixin",
+	"compatibilityLevel": "JAVA_25",
+	"client": [
+		"AnvilScreenMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	},
+	"mixinextras": {
+		"minVersion": "0.5.4"
+	}
+}

@@ -1,26 +1,109 @@
+import net.darkhax.curseforgegradle.TaskPublishCurseForge
+
 plugins {
-    // see https://fabricmc.net/develop/ for new versions
-    id 'net.fabricmc.fabric-loom' version '1.15-SNAPSHOT' apply false
-    // see https://projects.neoforged.net/neoforged/moddevgradle for new versions
-    id 'net.neoforged.moddev' version '2.0.141' apply false
-    id 'net.darkhax.curseforgegradle' version '1.1.28' apply false
-    id "com.modrinth.minotaur" version "2.+" apply false
+	id 'net.fabricmc.fabric-loom' version "${loom_version}"
+	id 'maven-publish'
+	id 'net.darkhax.curseforgegradle' version '1.1.28'
+	id "com.modrinth.minotaur" version "2.+"
 }
 
-tasks.register('publishModrinth') {
-    group = 'publishing'
-    description = 'Uploads the Fabric and NeoForge releases to Modrinth.'
-    dependsOn(':fabric:modrinth', ':neoforge:modrinth')
+repositories {
+	// Add repositories to retrieve artifacts from in here.
+	// You should only use this when depending on other mods because
+	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
+	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
+	// for more information about repositories.
 }
 
-tasks.register('publishCurseForge') {
-    group = 'publishing'
-    description = 'Uploads the Fabric and NeoForge releases to CurseForge.'
-    dependsOn(':fabric:publishCurseForge', ':neoforge:publishCurseForge')
+loom {
+	splitEnvironmentSourceSets()
+
+	mods {
+		"nemos_enchantments" {
+			sourceSet sourceSets.main
+			sourceSet sourceSets.client
+		}
+	}
 }
 
-tasks.register('publishMods') {
-    group = 'publishing'
-    description = 'Uploads the Fabric and NeoForge releases to Modrinth and CurseForge.'
-    dependsOn('publishModrinth', 'publishCurseForge')
+fabricApi {
+	configureDataGeneration {
+		client = true
+	}
 }
+
+dependencies {
+	// To change the versions see the gradle.properties file
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+	// Fabric API. This is technically optional, but you probably want it anyway.
+	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+}
+
+processResources {
+	inputs.property "version", project.version
+	inputs.property "minecraft_version", project.minecraft_version
+	inputs.property "loader_version", project.loader_version
+	inputs.property "java_version", project.java_version
+
+	filesMatching("fabric.mod.json") {
+		expand(
+				"version": inputs.properties.version,
+				"minecraft_version": inputs.properties.minecraft_version,
+				"loader_version": inputs.properties.loader_version,
+				"java_version": inputs.properties.java_version,
+		)
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = 25
+}
+
+java {
+	// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
+	// if it is present.
+	// If you remove this line, sources will not be generated.
+	withSourcesJar()
+
+	sourceCompatibility = JavaVersion.VERSION_25
+	targetCompatibility = JavaVersion.VERSION_25
+}
+
+jar {
+	def projectName = project.name
+	inputs.property "projectName", projectName
+
+	from("LICENSE") {
+		rename { "${it}_$projectName"}
+	}
+}
+
+tasks.register('publishCurseForge', TaskPublishCurseForge) {
+	dependsOn(tasks.jar)
+	apiToken = System.getenv("CURSEFORGE_TOKEN")
+
+	def projectId = findProperty('curseforge_project_id')
+
+	def mainFile = upload(projectId, tasks.jar.archiveFile)
+	mainFile.changelog = file('../changelog.md')
+	mainFile.displayName = findProperty('mod_name') + ' Fabric ' + findProperty('version')
+	mainFile.releaseType = 'release'
+	mainFile.addEnvironment("Client", "Server")
+	mainFile.addJavaVersion("Java 25")
+	mainFile.addRequirement("fabric-api")
+}
+
+modrinth {
+	token.set(System.getenv("MODRINTH_TOKEN"))
+	projectId.set(findProperty('modrinth_project_id'))
+	changelog.set(file('changelog.md').text)
+	versionName.set(findProperty('mod_name') + ' ' + findProperty('version'))
+	versionType.set("release")
+	uploadFile.set(tasks.jar)
+	dependencies {
+		required.project("fabric-api")
+	}
+}
+tasks.modrinth.dependsOn(tasks.jar)
