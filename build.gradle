@@ -87,8 +87,8 @@ tasks.register('publishCurseForge', TaskPublishCurseForge) {
 	def projectId = findProperty('curseforge_project_id')
 
 	def mainFile = upload(projectId, tasks.jar.archiveFile)
-	mainFile.changelog = file('../changelog.md')
-	mainFile.displayName = findProperty('mod_name') + ' Fabric ' + findProperty('version')
+	mainFile.changelog = file('changelog.md')
+	mainFile.displayName = findProperty('mod_name') + ' ' + findProperty('version')
 	mainFile.releaseType = 'release'
 	mainFile.addEnvironment("Client", "Server")
 	mainFile.addJavaVersion("Java 25")
@@ -107,3 +107,9 @@ modrinth {
 	}
 }
 tasks.modrinth.dependsOn(tasks.jar)
+
+tasks.register('publishMod') {
+	group = 'publishing'
+	description = 'Publishes the mod to CurseForge and Modrinth.'
+	dependsOn(tasks.publishCurseForge, tasks.modrinth)
+}
