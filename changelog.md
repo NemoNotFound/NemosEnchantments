@@ -1,11 +1,6 @@
-# Changelog v1.10
+# Changelog v1.11
 
 ## Additions
-- Added Soul Touch enchantment
-  - allows mob spawners to be mined
-
-## Changes
-- Farmland can now be trampled while wearing Feather Falling when the player takes fall damage
-
-## Fixes
-- Fixed Collector not collecting drops when breaking the upper half of doors
+- Added enchantment descriptions
+  - Currently only for Nemo's Enchantments
+  - Will be added for all enchantments soon
