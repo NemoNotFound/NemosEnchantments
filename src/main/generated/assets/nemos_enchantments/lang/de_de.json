@@ -1,5 +1,8 @@
 {
-  "attribute.name.climbing_efficiency": "Klettereffizienz",
+  "attribute.name.climbing_speed": "Klettergeschwindigkeit",
+  "attribute.name.monster_visibility": "Monstersichtbarkeit",
+  "enchantment.nemos_enchantments.camouflage": "Tarnung",
+  "enchantment.nemos_enchantments.camouflage.description": "Verringert die Monstersichtbarkeit.",
   "enchantment.nemos_enchantments.climber": "Kletterer",
   "enchantment.nemos_enchantments.climber.description": "Lässt dich schneller auf Leitern und Gerüste klettern.",
   "enchantment.nemos_enchantments.collector": "Sammler",

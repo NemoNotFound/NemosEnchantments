@@ -11,6 +11,8 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.monster.Enemy;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.level.Level;
@@ -38,19 +40,21 @@ public abstract class LivingEntityMixin extends Entity implements LivingEntityAc
 
     @ModifyReturnValue(method = "createLivingAttributes", at = @At("RETURN"))
     private static AttributeSupplier.Builder createLivingAttributes(AttributeSupplier.Builder original) {
-        return original.add(NemosAttributes.CLIMBING_EFFICIENCY);
+        return original
+                .add(NemosAttributes.CLIMBING_SPEED)
+                .add(NemosAttributes.MONSTER_VISIBILITY);
     }
 
     @ModifyVariable(method = "handleRelativeFrictionAndCalculateMovement", at = @At(value = "STORE", ordinal = 1), name = "movement")
     private Vec3 modifyMovementDistance(Vec3 movement) {
-        var climbingEfficiency = getAttributeValue(NemosAttributes.CLIMBING_EFFICIENCY);
+        var climbingEfficiency = getAttributeValue(NemosAttributes.CLIMBING_SPEED);
 
         return new Vec3(movement.x, climbingEfficiency, movement.z);
     }
 
     @ModifyVariable(method = "handleOnClimbable", at = @At(value = "STORE"), name = "yd")
     private double modifyMovementDistance(double y, @Local(argsOnly = true, name = "delta") Vec3 delta) {
-        var climbingEfficiency = getAttributeValue(NemosAttributes.CLIMBING_EFFICIENCY);
+        var climbingEfficiency = getAttributeValue(NemosAttributes.CLIMBING_SPEED);
 
         return Math.max(delta.y, -climbingEfficiency + 0.05F);
     }
@@ -58,5 +62,14 @@ public abstract class LivingEntityMixin extends Entity implements LivingEntityAc
     @Inject(method = "dropAllDeathLoot", at = @At("TAIL"))
     private void nemosEnchantments$dropHead(ServerLevel level, DamageSource source, CallbackInfo ci) {
         HeadHunterUtils.tryDropHead(level, (LivingEntity) (Object) this, source);
+    }
+
+    @ModifyReturnValue(method = "getVisibilityPercent", at = @At("RETURN"))
+    private double nemosEnchantments$applyCamouflage(double original, Entity targetingEntity) {
+        if (!((Object) this instanceof Player) || !(targetingEntity instanceof Enemy)) {
+            return original;
+        }
+
+        return original * getAttributeValue(NemosAttributes.MONSTER_VISIBILITY);
     }
 }

@@ -11,7 +11,7 @@
           "base": 0.05,
           "per_level_above_first": 0.05
         },
-        "attribute": "nemos_enchantments:climbing_efficiency",
+        "attribute": "nemos_enchantments:climbing_speed",
         "id": "nemos_enchantments:enchantment.climber",
         "operation": "add_value"
       }

@@ -54,6 +54,7 @@ public class Enchantments {
     public static final ResourceKey<Enchantment> FELLING = createResourceKey("felling");
     public static final ResourceKey<Enchantment> HEAD_HUNTER = createResourceKey("head_hunter");
     public static final ResourceKey<Enchantment> SOUL_TOUCH = createResourceKey("soul_touch");
+    public static final ResourceKey<Enchantment> CAMOUFLAGE = createResourceKey("camouflage");
 
     public static void bootstrap(BootstrapContext<Enchantment> context) {
         LOGGER.info("Registering enchantments");
@@ -97,7 +98,7 @@ public class Enchantments {
                                 EnchantmentEffectComponents.ATTRIBUTES,
                                 new EnchantmentAttributeEffect(
                                         Identifier.fromNamespaceAndPath(MOD_ID, "enchantment.climber"),
-                                        NemosAttributes.CLIMBING_EFFICIENCY,
+                                        NemosAttributes.CLIMBING_SPEED,
                                         LevelBasedValue.perLevel(0.05F),
                                         AttributeModifier.Operation.ADD_VALUE
                                 )
@@ -325,6 +326,30 @@ public class Enchantments {
                                 Enchantment.constantCost(60),
                                 20,
                                 EquipmentSlotGroup.MAINHAND
+                        )
+                )
+        );
+
+        register(
+                context,
+                CAMOUFLAGE,
+                Enchantment.enchantment(
+                        Enchantment.definition(
+                                itemLookup.getOrThrow(ItemTags.ARMOR_ENCHANTABLE),
+                                3,
+                                3,
+                                Enchantment.dynamicCost(10, 10),
+                                Enchantment.dynamicCost(25, 10),
+                                4,
+                                EquipmentSlotGroup.ARMOR
+                        )
+                ).withEffect(
+                        EnchantmentEffectComponents.ATTRIBUTES,
+                        new EnchantmentAttributeEffect(
+                                Identifier.fromNamespaceAndPath(MOD_ID, "enchantment.camouflage"),
+                                NemosAttributes.MONSTER_VISIBILITY,
+                                LevelBasedValue.perLevel(-0.04F),
+                                AttributeModifier.Operation.ADD_MULTIPLIED_BASE
                         )
                 )
         );

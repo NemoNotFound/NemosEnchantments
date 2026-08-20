@@ -9,9 +9,15 @@ import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 
 public class NemosAttributes {
 
-    public static final Holder<Attribute> CLIMBING_EFFICIENCY = register(
-            "climbing_efficiency", new RangedAttribute("attribute.name.climbing_efficiency", 0.2, 0.2, 1.0).setSyncable(true)
+    public static final Holder<Attribute> CLIMBING_SPEED = register(
+            "climbing_speed", new RangedAttribute("attribute.name.climbing_speed", 0.2, 0.2, 1.0).setSyncable(true)
     );
+    public static final Holder<Attribute> MONSTER_VISIBILITY = register(
+            "monster_visibility", new RangedAttribute("attribute.name.monster_visibility", 1.0, 0.52, 1.0)
+                    .setSyncable(true)
+                    .setSentiment(Attribute.Sentiment.NEGATIVE)
+    );
+
     public static void init() {}
 
     private static Holder<Attribute> register(String id, Attribute attribute) {

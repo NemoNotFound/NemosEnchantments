@@ -1,0 +1,34 @@
+{
+  "anvil_cost": 4,
+  "description": {
+    "translate": "enchantment.nemos_enchantments.camouflage"
+  },
+  "effects": {
+    "minecraft:attributes": [
+      {
+        "amount": {
+          "type": "minecraft:linear",
+          "base": -0.04,
+          "per_level_above_first": -0.04
+        },
+        "attribute": "nemos_enchantments:monster_visibility",
+        "id": "nemos_enchantments:enchantment.camouflage",
+        "operation": "add_multiplied_base"
+      }
+    ]
+  },
+  "max_cost": {
+    "base": 25,
+    "per_level_above_first": 10
+  },
+  "max_level": 3,
+  "min_cost": {
+    "base": 10,
+    "per_level_above_first": 10
+  },
+  "slots": [
+    "armor"
+  ],
+  "supported_items": "#minecraft:enchantable/armor",
+  "weight": 3
+}

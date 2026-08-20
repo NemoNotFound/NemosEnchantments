@@ -44,9 +44,12 @@ public class EnglishLanguageGenerator extends FabricLanguageProvider {
         translationBuilder.add(getEnchantmentDescriptionTranslationKey(Enchantments.HEAD_HUNTER), "Killed mobs have a chance to drop their heads.");
         translationBuilder.add(getEnchantmentTranslationKey(Enchantments.SOUL_TOUCH), "Soul Touch");
         translationBuilder.add(getEnchantmentDescriptionTranslationKey(Enchantments.SOUL_TOUCH), "Allows you to collect a monster spawner.");
+        translationBuilder.add(getEnchantmentTranslationKey(Enchantments.CAMOUFLAGE), "Camouflage");
+        translationBuilder.add(getEnchantmentDescriptionTranslationKey(Enchantments.CAMOUFLAGE), "Reduces monster visibility.");
 
         translationBuilder.add("tooltip.nemos_enchantments.hold_shift", "Hold Shift for enchantment descriptions");
-        translationBuilder.add("attribute.name.climbing_efficiency", "Climbing Efficiency");
+        translationBuilder.add("attribute.name.climbing_speed", "Climbing Speed");
+        translationBuilder.add("attribute.name.monster_visibility", "Monster Visibility");
     }
 
     public static String getEnchantmentTranslationKey(ResourceKey<Enchantment> enchantmentRegistryKey) {

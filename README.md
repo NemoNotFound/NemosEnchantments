@@ -23,6 +23,8 @@ To see all enchantments, check the [wiki](https://wiki.nemonotfound.com/projects
 - Wisdom
 - Felling
 - Head-Hunter
+- Soul Touch
+- Camouflage
 
 ## Downloads
 

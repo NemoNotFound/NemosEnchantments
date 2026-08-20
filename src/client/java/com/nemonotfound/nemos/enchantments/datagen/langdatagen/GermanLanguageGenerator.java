@@ -45,8 +45,11 @@ public class GermanLanguageGenerator extends FabricLanguageProvider {
         translationBuilder.add(getEnchantmentDescriptionTranslationKey(Enchantments.HEAD_HUNTER), "Getötete Kreaturen haben eine geringe Chance ihre Köpfe fallen zu lassen");
         translationBuilder.add(getEnchantmentTranslationKey(Enchantments.SOUL_TOUCH), "Seelenbehutsamkeit");
         translationBuilder.add(getEnchantmentDescriptionTranslationKey(Enchantments.SOUL_TOUCH), "Lässt dich einen Monsterspawner abbauen und aufsammeln.");
+        translationBuilder.add(getEnchantmentTranslationKey(Enchantments.CAMOUFLAGE), "Tarnung");
+        translationBuilder.add(getEnchantmentDescriptionTranslationKey(Enchantments.CAMOUFLAGE), "Verringert die Monstersichtbarkeit.");
 
         translationBuilder.add("tooltip.nemos_enchantments.hold_shift", "Halte Umschalt für Verzauberungsbeschreibungen");
-        translationBuilder.add("attribute.name.climbing_efficiency", "Klettereffizienz");
+        translationBuilder.add("attribute.name.climbing_speed", "Klettergeschwindigkeit");
+        translationBuilder.add("attribute.name.monster_visibility", "Monstersichtbarkeit");
     }
 }

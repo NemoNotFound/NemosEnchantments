@@ -28,7 +28,8 @@ public class EnchantmentTagProvider extends FabricTagsProvider<Enchantment> {
                 .add(REPLANTING)
                 .add(SNOW_WALKER)
                 .add(COLLECTOR)
-                .add(FELLING);
+                .add(FELLING)
+                .add(CAMOUFLAGE);
 
         builder(EnchantmentTags.ON_RANDOM_LOOT)
                 .add(SOUL_BINDING)
@@ -47,7 +48,8 @@ public class EnchantmentTagProvider extends FabricTagsProvider<Enchantment> {
                 .add(REPLANTING)
                 .add(SNOW_WALKER)
                 .add(COLLECTOR)
-                .add(FELLING);
+                .add(FELLING)
+                .add(CAMOUFLAGE);
 
         builder(EnchantmentTags.TREASURE)
                 .add(SOUL_BINDING)
@@ -65,6 +67,7 @@ public class EnchantmentTagProvider extends FabricTagsProvider<Enchantment> {
                 .add(MAGMA_WALKER)
                 .add(SNOW_WALKER)
                 .add(COLLECTOR)
-                .add(FELLING);
+                .add(FELLING)
+                .add(CAMOUFLAGE);
     }
 }

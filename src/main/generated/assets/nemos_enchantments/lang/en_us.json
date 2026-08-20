@@ -1,5 +1,8 @@
 {
-  "attribute.name.climbing_efficiency": "Climbing Efficiency",
+  "attribute.name.climbing_speed": "Climbing Speed",
+  "attribute.name.monster_visibility": "Monster Visibility",
+  "enchantment.nemos_enchantments.camouflage": "Camouflage",
+  "enchantment.nemos_enchantments.camouflage.description": "Reduces monster visibility.",
   "enchantment.nemos_enchantments.climber": "Climber",
   "enchantment.nemos_enchantments.climber.description": "Lets you climb ladders and scaffolding faster.",
   "enchantment.nemos_enchantments.collector": "Collector",
