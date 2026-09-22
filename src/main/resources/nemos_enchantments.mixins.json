@@ -5,7 +5,6 @@
 	"mixins": [
 		"AbstractHorseMixin",
 		"AllayMixin",
-		"AxeItemAccessor",
 		"BlockEntityMixin",
 		"BlockItemMixin",
 		"BlockMixin",

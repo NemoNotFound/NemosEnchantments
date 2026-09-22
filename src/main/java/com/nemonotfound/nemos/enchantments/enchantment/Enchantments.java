@@ -61,6 +61,7 @@ public class Enchantments {
 
         var enchantmentLookup = context.lookup(Registries.ENCHANTMENT);
         var itemLookup = context.lookup(Registries.ITEM);
+        var damageTypeLookup = context.lookup(Registries.DAMAGE_TYPE);
 
         register(
                 context,
@@ -198,8 +199,8 @@ public class Enchantments {
                                 DamageImmunity.INSTANCE,
                                 DamageSourceCondition.hasDamageSource(
                                         DamageSourcePredicate.Builder.damageType()
-                                                .tag(TagPredicate.is(DamageTypeTags.BURN_FROM_STEPPING))
-                                                .tag(TagPredicate.isNot(DamageTypeTags.BYPASSES_INVULNERABILITY))
+                                                .tag(TagPredicate.is(damageTypeLookup, DamageTypeTags.BURN_FROM_STEPPING))
+                                                .tag(TagPredicate.isNot(damageTypeLookup, DamageTypeTags.BYPASSES_INVULNERABILITY))
                                 )
                         )
                         .withEffect(
@@ -216,7 +217,7 @@ public class Enchantments {
                                                         BlockPredicate.unobstructed()
                                                 )
                                         ),
-                                        BlockStateProvider.simple(Blocks.MAGMA_BLOCK),
+                                        BlockStateProvider.holderOf(Blocks.MAGMA_BLOCK),
                                         Optional.of(GameEvent.BLOCK_PLACE)
                                 ),
                                 AllOfCondition.allOf(

@@ -12,7 +12,7 @@ import net.minecraft.core.component.predicates.DataComponentPredicates;
 import net.minecraft.core.component.predicates.EnchantmentsPredicate;
 import net.minecraft.core.registries.Registries;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
-import net.minecraft.data.loot.LootTableProvider;
+import net.fabricmc.fabric.api.datagen.v1.provider.SimpleFabricLootTableSubProvider;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
@@ -35,38 +35,34 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemEntityPropertyC
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 
 import java.util.List;
-import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.BiConsumer;
 
 import static com.nemonotfound.nemos.enchantments.enchantment.Enchantments.SOUL_TOUCH;
 import static com.nemonotfound.nemos.enchantments.utils.HeadHunterUtils.HEAD_HUNTER_LOOT_TABLE;
 
-public class EnchantmentLootTableProvider extends LootTableProvider {
+public class EnchantmentLootTableProvider extends SimpleFabricLootTableSubProvider {
 
     private static final String SOUL_TOUCH_MARKER = "nemos_enchantments:soul_touch";
+    private final CompletableFuture<HolderLookup.Provider> registries;
 
     public EnchantmentLootTableProvider(
             FabricPackOutput output,
             CompletableFuture<HolderLookup.Provider> registries
     ) {
-        super(
-                output,
-                Set.of(HEAD_HUNTER_LOOT_TABLE, Blocks.SPAWNER.getLootTable().orElseThrow()),
-                List.of(new SubProviderEntry(
-                        lookup -> consumer -> generate(lookup, consumer),
-                        LootContextParamSets.ALL_PARAMS
-                )),
-                registries
-        );
+        super(output, registries, LootContextParamSets.ALL_PARAMS);
+        this.registries = registries;
     }
 
-    private static void generate(
-            HolderLookup.Provider registries,
-            BiConsumer<ResourceKey<LootTable>, LootTable.Builder> output
-    ) {
-        generateHeadHunterLootTable(registries, output);
-        generateSoulTouchLootTable(registries, output);
+    @Override
+    public void generate(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> output) {
+        HolderLookup.Provider registryLookup = registries.join();
+        generateHeadHunterLootTable(registryLookup, output);
+        generateSoulTouchLootTable(registryLookup, output);
+    }
+
+    @Override
+    public void run() {
     }
 
     private static void generateHeadHunterLootTable(

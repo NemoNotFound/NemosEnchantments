@@ -65,7 +65,7 @@ public abstract class LivingEntityMixin extends Entity implements LivingEntityAc
     }
 
     @ModifyReturnValue(method = "getVisibilityPercent", at = @At("RETURN"))
-    private double nemosEnchantments$applyCamouflage(double original, Entity targetingEntity) {
+    private double nemosEnchantments$applyCamouflage(double original, ServerLevel serverLevel, Entity targetingEntity) {
         if (!((Object) this instanceof Player) || !(targetingEntity instanceof Enemy)) {
             return original;
         }

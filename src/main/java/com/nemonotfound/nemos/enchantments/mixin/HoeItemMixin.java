@@ -5,9 +5,9 @@ import com.nemonotfound.nemos.enchantments.utils.EnchantmentUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseFireBlock;
 import net.minecraft.world.level.block.Block;
@@ -17,44 +17,40 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.material.FluidState;
-import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import static com.nemonotfound.nemos.enchantments.utils.EnchantmentUtils.hasEnchantment;
 
-@Mixin(HoeItem.class)
+@Mixin(Item.class)
 //TODO: Replace with enchantment effect
-public class HoeItemMixin extends Item {
+public abstract class HoeItemMixin {
 
-    public HoeItemMixin(Properties properties) {
-        super(properties);
-    }
-
-    @Override
-    public boolean canDestroyBlock(@NotNull ItemStack itemStack, @NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull LivingEntity user) {
-        if (!(user instanceof Player)) {
-            return super.canDestroyBlock(itemStack, state, level, pos, user);
+    @Inject(method = "canDestroyBlock", at = @At("HEAD"), cancellable = true)
+    private void nemosEnchantments$preventUnripeCropHarvest(ItemStack itemStack, BlockState state, Level level,
+                                                            BlockPos pos, LivingEntity user,
+                                                            CallbackInfoReturnable<Boolean> cir) {
+        if (!itemStack.is(ItemTags.HOES) || !(user instanceof Player)) {
+            return;
         }
 
-        ItemStack hoe = user.getMainHandItem();
         Block block = state.getBlock();
-        boolean isBlockCropBlock = block instanceof CropBlock;
 
-        if (isBlockCropBlock) {
-            boolean hasFarmersKnowledge = hasEnchantment(level, Enchantments.FARMERS_KNOWLEDGE, hoe);
-            boolean isCropRipe = ((CropBlock) block).isMaxAge(state);
-
-            if (hasFarmersKnowledge) {
-                return ((Player) user).isCreative() || isCropRipe;
-            }
+        if (block instanceof CropBlock && hasEnchantment(level, Enchantments.FARMERS_KNOWLEDGE, itemStack)) {
+            cir.setReturnValue(nemosFarming_canDestroyCrop(state, (Player) user));
         }
-
-        return true;
     }
 
-    @Override
-    public boolean mineBlock(@NotNull ItemStack stack, @NotNull Level level, BlockState state, @NotNull BlockPos pos, LivingEntity miner) {
+    @Inject(method = "mineBlock", at = @At("HEAD"))
+    private void nemosEnchantments$reapNearbyCrops(ItemStack stack, Level level, BlockState state, BlockPos pos,
+                                                   LivingEntity miner, CallbackInfoReturnable<Boolean> cir) {
+        if (!stack.is(ItemTags.HOES)) {
+            return;
+        }
+
         ItemStack hoe = miner.getMainHandItem();
         boolean isBlockCropBlock = state.getBlock() instanceof CropBlock;
         boolean hasHoeReaperEnchantment = hasEnchantment(level, Enchantments.REAPER, hoe);
@@ -70,7 +66,6 @@ public class HoeItemMixin extends Item {
             }
         }
 
-        return super.mineBlock(stack, level, state, pos, miner);
     }
 
     @Unique
@@ -92,9 +87,20 @@ public class HoeItemMixin extends Item {
         BlockState nextBlockState = level.getBlockState(pos);
         Block nextBlock = nextBlockState.getBlock();
 
-        if (nextBlock instanceof CropBlock && canDestroyBlock(user.getMainHandItem(), nextBlockState, level, pos, user)) {
-            nemosFarming_breakBlock(level, nextBlockState, pos, user);
+        if (nextBlock instanceof CropBlock) {
+            ItemStack hoe = user.getMainHandItem();
+            boolean canDestroyCrop = !hasEnchantment(level, Enchantments.FARMERS_KNOWLEDGE, hoe)
+                    || nemosFarming_canDestroyCrop(nextBlockState, (Player) user);
+
+            if (canDestroyCrop) {
+                nemosFarming_breakBlock(level, nextBlockState, pos, user);
+            }
         }
+    }
+
+    @Unique
+    private boolean nemosFarming_canDestroyCrop(BlockState state, Player player) {
+        return player.isCreative() || ((CropBlock) state.getBlock()).isMaxAge(state);
     }
 
     @Unique

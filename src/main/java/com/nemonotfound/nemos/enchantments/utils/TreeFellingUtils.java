@@ -1,6 +1,5 @@
 package com.nemonotfound.nemos.enchantments.utils;
 
-import com.nemonotfound.nemos.enchantments.mixin.AxeItemAccessor;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
@@ -142,8 +141,7 @@ public final class TreeFellingUtils {
     }
 
     private static WoodFamily woodFamily(Block block) {
-        Block strippedVariant = AxeItemAccessor.nemosEnchantments$getStrippables().getOrDefault(block, block);
-        Identifier id = BuiltInRegistries.BLOCK.getKey(strippedVariant);
+        Identifier id = BuiltInRegistries.BLOCK.getKey(block);
         String path = removePrefix(id.getPath(), "stripped_");
         path = removePrefix(path, "muddy_");
 
