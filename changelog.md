@@ -1,5 +1,4 @@
-# Changelog v1.13
+# Changelog v1.13.1
 
-## Changes
-- Reworked Felling to track individual trees instead of calculating a tree.
-  - Improved support for existing and modded trees
+## Fixes
+- Fixed Felling to break neighbouring trees when connected to untracked trees by leaves.

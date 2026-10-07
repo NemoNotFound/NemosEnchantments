@@ -16,7 +16,10 @@ import java.util.UUID;
 import java.util.function.LongFunction;
 
 /**
- * Finds logs connected through direct or diagonal contact with logs, leaves, or wart blocks.
+ * Finds logs connected through direct or diagonal contact.
+ *
+ * <p>Tracked trees can connect through leaves or wart blocks because their IDs separate neighboring
+ * trees. Untracked trees connect through logs only, so touching canopies do not merge them.
  */
 //TODO: Rethink and refactor
 public final class ConnectedTreeLogSearch {
@@ -44,8 +47,8 @@ public final class ConnectedTreeLogSearch {
     /**
      * Returns connected logs including the origin, in an independent, mutable list.
      *
-     * <p>Exceeding the log limit or {@value #MAX_CONNECTED_BLOCKS} connected logs, leaves and wart
-     * blocks rejects the search and returns an empty list instead of a partial felling result.
+     * <p>Exceeding the log limit or {@value #MAX_CONNECTED_BLOCKS} connected blocks rejects the
+     * search and returns an empty list instead of a partial felling result.
      */
     public List<BlockPos> findLogs(BlockPos origin) {
         SearchResult result = search(origin, MAX_CONNECTED_BLOCKS);
@@ -110,7 +113,7 @@ public final class ConnectedTreeLogSearch {
             return belongsToSelectedTree(chunk, position) ? BlockType.LOG : BlockType.UNRELATED;
         }
 
-        if (TreeBlockHelper.connectsLogs(state)) {
+        if (treeId != null && TreeBlockHelper.connectsLogs(state)) {
             return BlockType.CONNECTING_BLOCK;
         }
 
