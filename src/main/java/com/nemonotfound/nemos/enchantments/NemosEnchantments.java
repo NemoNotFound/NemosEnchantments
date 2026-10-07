@@ -1,6 +1,7 @@
 package com.nemonotfound.nemos.enchantments;
 
 import com.nemonotfound.nemos.enchantments.entity.attribute.NemosAttributes;
+import com.nemonotfound.nemos.enchantments.tree.TreeTracking;
 import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.resources.Identifier;
@@ -19,6 +20,7 @@ public class NemosEnchantments implements ModInitializer {
 		LOGGER.info("You want more enchantments? What are you? A wizard?");
 
 		NemosAttributes.init();
+		TreeTracking.init();
 	}
 
 	public static Identifier modIdentifier(String path) {

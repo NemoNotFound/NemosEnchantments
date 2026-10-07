@@ -8,6 +8,7 @@
 		"BlockEntityMixin",
 		"BlockItemMixin",
 		"BlockMixin",
+		"BlockTransformerMixin",
 		"DoorBlockMixin",
 		"AnvilMenuMixin",
 		"FarmBlockMixin",
@@ -17,7 +18,9 @@
 		"PlayerEntityMixin",
 		"PowderSnowBlockMixin",
 		"ServerPlayerEntityMixin",
-		"ServerPlayerGameModeMixin"
+		"ServerPlayerGameModeMixin",
+		"TreeChunkMixin",
+		"TreeFeatureMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
